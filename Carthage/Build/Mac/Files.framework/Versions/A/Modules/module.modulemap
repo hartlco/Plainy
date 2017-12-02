@@ -1,0 +1,4 @@
+framework module Files {
+    header "Files-Swift.h"
+    requires objc
+}

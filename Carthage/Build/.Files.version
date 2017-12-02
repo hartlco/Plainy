@@ -1,0 +1,24 @@
+{
+  "Mac" : [
+    {
+      "name" : "Files",
+      "hash" : "a59faddeb61f73f9b43a5eda562b9a46f9060d75e690fadcb116f7921df85e43"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "name" : "Files",
+      "hash" : "ab14158755e900ce2ad04cda35b194aa8adb3f7024061c2ef94822cee4f9376c"
+    }
+  ],
+  "commitish" : "2.0.1",
+  "iOS" : [
+    {
+      "name" : "Files",
+      "hash" : "8f37eee9220c3469a48adceeb5ea2598adbe2206081cfe18a77f4d40c8f418f2"
+    }
+  ]
+}
