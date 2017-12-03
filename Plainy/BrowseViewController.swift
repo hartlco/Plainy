@@ -39,6 +39,7 @@ class BrowseViewController: NSViewController {
         didSet {
             outlineView.delegate = self
             outlineView.dataSource = self
+            outlineView.registerForDraggedTypes([NSPasteboard.PasteboardType.fileURL])
         }
     }
     
@@ -87,8 +88,8 @@ class BrowseViewController: NSViewController {
         let item = outlineView.item(atRow: outlineView.selectedRow)
         let folderToCreateIn: Folder
         
-        if let file = item as? File {
-            folderToCreateIn = file.parent ?? rootFolder
+        if let _ = item as? File {
+            folderToCreateIn = (outlineView.parent(forItem: item) as? Folder) ?? rootFolder
         } else if let folder = item as? Folder {
             folderToCreateIn = folder
         } else {
@@ -224,6 +225,46 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             outlineView.scrollRowToVisible(row)
         }
     }
+    
+    // MARK: - Drag n Drop
+    
+    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+        guard let file = item as? FileSystem.Item else { return nil }
+        outlineView.selectRowIndexes([outlineView.row(forItem: item)], byExtendingSelection: false)
+        
+        let pasteboardItem = NSPasteboardItem()
+        pasteboardItem.setString(file.path, forType: .fileURL)
+        return pasteboardItem
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        guard let _ = item as? Folder else { return NSDragOperation(rawValue: 0) }
+        return NSDragOperation.move
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+        guard let folder = item as? Folder,
+            let file = outlineView.item(atRow: outlineView.selectedRow) as? FileSystem.Item else { return false }
+        
+        var parent: Folder? = outlineView.parent(forItem: file) as? Folder ?? rootFolder
+        
+        do {
+            let oldIndex = parent?.allItems.index(of: file)
+            try file.move(to: folder)
+            let newIndex = folder.allItems.index(of: file)
+            
+            if parent == rootFolder {
+                parent = nil
+            }
+            
+            outlineView.moveItem(at: oldIndex ?? 0, inParent: parent, to: newIndex ?? 0, inParent: folder)
+            
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     
     private func selectFile(item: Any) {
         if let file = item as? File {
