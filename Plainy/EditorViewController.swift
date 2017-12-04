@@ -31,6 +31,21 @@ class EditorViewController: NSViewController {
         }
     }
     
+    private let notificationCenter: NotificationCenter = .default
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.saveOnLoosingFocus), name: NSWindow.didResignKeyNotification, object: nil)
+    }
+    
+    deinit {
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func saveOnLoosingFocus() {
+        save()
+    }
+    
     func save() {
         guard let file = file else { return }
         try? file.write(string: textView.string)
@@ -43,14 +58,11 @@ class EditorViewController: NSViewController {
             textView.font = EditorFont.menlo.font(with: 14)
         }
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
 }
 
-extension EditorViewController: NSTextViewDelegate { }
+extension EditorViewController: NSTextViewDelegate {
+    func textDidEndEditing(_ notification: Notification) {
+        save()
+    }
+}
 
