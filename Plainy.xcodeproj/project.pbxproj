@@ -71,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B630BD71FD5E722006D34FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B68A7EA1FD270F9007849CE /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
 		5B68A7EF1FD27127007849CE /* Files.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Files.framework.dSYM; path = Carthage/Build/Mac/Files.framework.dSYM; sourceTree = "<group>"; };
 		5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemItemCell.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
+				5B630BD71FD5E722006D34FA /* README.md */,
 				5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */,
 				5B68A7EF1FD27127007849CE /* Files.framework.dSYM */,
 				5B7449B61FD3D6DA00B69A52 /* Witness.framework */,
