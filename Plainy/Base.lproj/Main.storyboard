@@ -910,14 +910,17 @@ CA
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g30-ci-V41">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
                                                                     <subviews>
                                                                         <imageView translatesAutoresizingMaskIntoConstraints="NO" id="mqk-mX-ICD">
-                                                                            <rect key="frame" x="0.0" y="15" width="14" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="15" width="32" height="14"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="32" id="lX4-ex-Uqb"/>
+                                                                            </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="NSActionTemplate" id="YVB-AX-a3F"/>
                                                                         </imageView>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-f5-xOt">
-                                                                            <rect key="frame" x="18" y="8" width="129" height="28"/>
+                                                                            <rect key="frame" x="36" y="8" width="129" height="28"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8yx-ED-oBt">
                                                                                     <rect key="frame" x="-2" y="11" width="133" height="17"/>
@@ -931,7 +934,7 @@ CA
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-Tu-UWI">
-                                                                                    <rect key="frame" x="-2" y="0.0" width="62" height="11"/>
+                                                                                    <rect key="frame" x="-2" y="0.0" width="133" height="11"/>
                                                                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="PPK-YG-AnH">
                                                                                         <font key="font" metaFont="system" size="8"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -939,6 +942,14 @@ CA
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                             </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="8yx-ED-oBt" firstAttribute="leading" secondItem="WHr-f5-xOt" secondAttribute="leading" id="4s8-xC-Yoy"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="8yx-ED-oBt" secondAttribute="trailing" id="M8U-kU-DvA"/>
+                                                                                <constraint firstItem="8yx-ED-oBt" firstAttribute="top" secondItem="WHr-f5-xOt" secondAttribute="top" id="UMM-CH-M3W"/>
+                                                                                <constraint firstItem="8yx-ED-oBt" firstAttribute="leading" secondItem="WHr-f5-xOt" secondAttribute="leading" id="dB3-Dp-MOr"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="tc1-Tu-UWI" secondAttribute="trailing" id="kAO-eg-lOo"/>
+                                                                                <constraint firstItem="tc1-Tu-UWI" firstAttribute="leading" secondItem="WHr-f5-xOt" secondAttribute="leading" id="kjn-S4-ucm"/>
+                                                                            </constraints>
                                                                             <visibilityPriorities>
                                                                                 <integer value="1000"/>
                                                                                 <integer value="1000"/>
@@ -949,6 +960,10 @@ CA
                                                                             </customSpacing>
                                                                         </stackView>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="mqk-mX-ICD" firstAttribute="leading" secondItem="g30-ci-V41" secondAttribute="leading" id="A9L-4l-b6t"/>
+                                                                        <constraint firstItem="WHr-f5-xOt" firstAttribute="leading" secondItem="mqk-mX-ICD" secondAttribute="trailing" constant="4" id="PUD-en-OUP"/>
+                                                                    </constraints>
                                                                     <visibilityPriorities>
                                                                         <integer value="1000"/>
                                                                         <integer value="1000"/>
