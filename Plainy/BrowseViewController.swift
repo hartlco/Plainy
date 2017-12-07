@@ -238,12 +238,27 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
     
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        guard let _ = item as? Folder else { return NSDragOperation(rawValue: 0) }
-        return NSDragOperation.move
+        if item == nil{
+            return .move
+        } else if item is Folder {
+            return .move
+        }
+        
+        return NSDragOperation(rawValue: 0)
     }
     
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        guard let folder = item as? Folder,
+        var destinationFolder: Folder?
+        
+        if item == nil {
+            destinationFolder = rootFolder
+        } else if let itemFolder = item as? Folder {
+            destinationFolder = itemFolder
+        } else {
+            destinationFolder = nil
+        }
+        
+        guard let folder = destinationFolder,
             let file = outlineView.item(atRow: outlineView.selectedRow) as? FileSystem.Item else { return false }
         
         var parent: Folder? = outlineView.parent(forItem: file) as? Folder ?? rootFolder
@@ -257,7 +272,11 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
                 parent = nil
             }
             
-            outlineView.moveItem(at: oldIndex ?? 0, inParent: parent, to: newIndex ?? 0, inParent: folder)
+            if destinationFolder == rootFolder {
+                destinationFolder = nil
+            }
+            
+            outlineView.moveItem(at: oldIndex ?? 0, inParent: parent, to: newIndex ?? 0, inParent: destinationFolder)
             
             return true
         } catch {
