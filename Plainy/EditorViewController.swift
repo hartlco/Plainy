@@ -47,7 +47,10 @@ class EditorViewController: NSViewController {
     }
     
     func save() {
-        guard let file = file else { return }
+        guard let file = file,
+        let readString = try? file.readAsString(),
+        textView.string != readString  else { return }
+        
         try? file.write(string: textView.string)
     }
     
