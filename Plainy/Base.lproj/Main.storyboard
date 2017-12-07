@@ -867,7 +867,7 @@ CA
                                     <rect key="frame" x="1" y="1" width="150" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="46" viewBased="YES" indentationPerLevel="10" outlineTableColumn="pkn-QG-czJ" id="uXg-yL-9fq" customClass="MenuOutlineView" customModule="Plainy" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="46" viewBased="YES" indentationPerLevel="14" outlineTableColumn="pkn-QG-czJ" id="uXg-yL-9fq" customClass="MenuOutlineView" customModule="Plainy" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="298"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
