@@ -18,15 +18,15 @@ enum EditorFont {
 }
 
 class EditorViewController: NSViewController {
-    var file: File? {
+    var browseFile: BrowseFileItem? {
         didSet {
-            guard let file = file,
-            let data = try? file.readAsString() else {
+            guard let browseFile = browseFile,
+                let data = try? browseFile.file.readAsString() else {
                 textView.string = ""
                 view.window?.title = "Plainy"
                 return
             }
-            view.window?.title = "Plainy - \(file.name)"
+            view.window?.title = "Plainy - \(browseFile.file.name)"
             textView.string = data
         }
     }
@@ -43,15 +43,15 @@ class EditorViewController: NSViewController {
     }
     
     @objc private func saveOnLoosingFocus() {
-        save()
+        ShortCutManager.shared.saveAction!()
     }
     
     func save() {
-        guard let file = file,
-        let readString = try? file.readAsString(),
+        guard let browseFile = browseFile,
+        let readString = try? browseFile.file.readAsString(),
         textView.string != readString  else { return }
         
-        try? file.write(string: textView.string)
+        try? browseFile.file.write(string: textView.string)
     }
     
 
@@ -65,7 +65,7 @@ class EditorViewController: NSViewController {
 
 extension EditorViewController: NSTextViewDelegate {
     func textDidEndEditing(_ notification: Notification) {
-        save()
+        ShortCutManager.shared.saveAction!()
     }
 }
 
