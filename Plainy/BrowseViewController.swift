@@ -95,7 +95,6 @@ class BrowseViewController: NSViewController {
     @objc func deleteSelectedFileSystemidem() {
         guard let item = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem else { return }
         
-    
         let containedFolder = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
 
         let parent: Any?
@@ -114,6 +113,12 @@ class BrowseViewController: NSViewController {
         didSelectFile(nil)
     }
     
+    @objc func openSelectedFileInFinder() {
+        guard let item = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem else { return }
+        
+        NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: item.item.path)])
+    }
+    
     // MARK: - Private helper
 
     private var addMenu: NSMenu {
@@ -121,6 +126,7 @@ class BrowseViewController: NSViewController {
         newFileMenu.addItem(NSMenuItem(title: "New file", action: #selector(BrowseViewController.newFileOnSelectedFolder), keyEquivalent: ""))
         newFileMenu.addItem(NSMenuItem(title: "New folder", action: #selector(BrowseViewController.newFolderOnSelectedFolder), keyEquivalent: ""))
         newFileMenu.addItem(NSMenuItem(title: "Delete", action: #selector(BrowseViewController.deleteSelectedFileSystemidem), keyEquivalent: ""))
+        newFileMenu.addItem(NSMenuItem(title: "Open in Finder", action: #selector(BrowseViewController.openSelectedFileInFinder), keyEquivalent: ""))
         return newFileMenu
     }
 }
