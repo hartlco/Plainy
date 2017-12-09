@@ -10,7 +10,7 @@ class FileSystemItemCell: NSTableCellView {
     static let identifier = "FileCell"
     
     @IBOutlet weak var fileNameTextField: NSTextField!
-    var fileSystemItem: FileSystem.Item?
+    var fileSystemItem: BrowseFileSystemItem?
     @IBOutlet weak var textPreviewTextField: NSTextField! {
         didSet {
             textPreviewTextField.maximumNumberOfLines = 2
@@ -20,7 +20,12 @@ class FileSystemItemCell: NSTableCellView {
 
 extension FileSystemItemCell: NSTextFieldDelegate {
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
-        try? fileSystemItem?.rename(to: fileNameTextField.stringValue)
+        try? fileSystemItem?.item.rename(to: fileNameTextField.stringValue)
+        
+        if let browseFolder = fileSystemItem as? BrowseFolderItem {
+            browseFolder.refreshAllItems()
+        }
+        
         return true
     }
 }

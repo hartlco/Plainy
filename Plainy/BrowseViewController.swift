@@ -170,7 +170,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         if let fileSystemItem = item as? BrowseFileSystemItem {
             fileCell?.imageView?.image = NSWorkspace.shared.icon(forFile: fileSystemItem.item.path)
             fileCell?.textField?.stringValue = fileSystemItem.item.name
-            fileCell?.fileSystemItem = fileSystemItem.item
+            fileCell?.fileSystemItem = fileSystemItem
             
             guard let file = fileSystemItem as? BrowseFileItem,
             let text = try? file.file.readAsString(),
