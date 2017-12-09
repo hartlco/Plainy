@@ -7,32 +7,10 @@ import Cocoa
 import Files
 import Witness
 
-extension Folder {
-    var allItems: [FileSystem.Item] {
-        let folders: [FileSystem.Item] = Array(subfolders)
-        let allFiles: [FileSystem.Item] = Array(files)
-        return folders + allFiles
-    }
-
-    var allItemsCount: Int {
-        return subfolders.count + files.count
-    }
-}
-
-extension FileSystem.Item {
-    func trash() throws {
-        do {
-            try FileManager.default.trashItem(at: URL(fileURLWithPath: path), resultingItemURL: nil)
-        } catch {
-            throw OperationError.deleteFailed(self)
-        }
-    }
-}
-
 class BrowseViewController: NSViewController {
-    var didSelectFile: (File?) -> () = { _ in }
+    var didSelectFile: (BrowseFileItem?) -> () = { _ in }
 
-    private var rootFolder = Folder.home
+    private var rootFolderItem = BrowseFolderItem(folder: Folder.home, parent: nil)
     private var didInsert = false
 
     @IBOutlet private  weak var outlineView: MenuOutlineView! {
@@ -45,36 +23,39 @@ class BrowseViewController: NSViewController {
     
     func updateFiles(rootPath: String) {
         guard let newRootFolder = try? Folder(path: rootPath) else {
-            rootFolder =  Folder.home
+            rootFolderItem =  BrowseFolderItem(folder: Folder.home, parent: nil)
             return
         }
         
-        rootFolder = newRootFolder
+        rootFolderItem = BrowseFolderItem(folder: newRootFolder, parent: nil)
         outlineView.reloadData()
     }
     
-    func update(file: File?) {
-        let row = outlineView.row(forItem: file)
-        outlineView.reloadData(forRowIndexes: [row], columnIndexes: [0])
+    func update(file: BrowseFileItem?) {
+        outlineView.reloadItem(file)
     }
 
     @objc func newFileOnSelectedFolder() {
         let item = outlineView.item(atRow: outlineView.selectedRow)
-        let folderToCreateIn: Folder
+        let folderToCreateIn: BrowseFolderItem
 
-        if let file = item as? File {
-            folderToCreateIn = file.parent ?? rootFolder
-        } else if let folder = item as? Folder {
+        if let _ = item as? BrowseFileItem {
+            folderToCreateIn = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
+        } else if let folder = item as? BrowseFolderItem {
             folderToCreateIn = folder
         } else {
-            folderToCreateIn = rootFolder
+            folderToCreateIn = rootFolderItem
         }
 
-        guard let newFile = try? folderToCreateIn.createFile(named: "newfile.md") else { return }
-        let index = folderToCreateIn.allItems.index(of: newFile) ?? 0
+        guard !folderToCreateIn.folder.containsFile(named: "newfile.md") else { return }
+        
+        guard let newFile = try? folderToCreateIn.folder.createFile(named: "newfile.md") else { return }
+        let index = folderToCreateIn.folder.allItems.index(of: newFile) ?? 0
         let parent: Any?
         
-        if folderToCreateIn == rootFolder {
+        folderToCreateIn.refreshAllItems()
+        
+        if folderToCreateIn == rootFolderItem {
             parent = nil
         } else {
             parent = folderToCreateIn
@@ -86,21 +67,22 @@ class BrowseViewController: NSViewController {
     
     @objc func newFolderOnSelectedFolder() {
         let item = outlineView.item(atRow: outlineView.selectedRow)
-        let folderToCreateIn: Folder
+        let folderToCreateIn: BrowseFolderItem
         
-        if let _ = item as? File {
-            folderToCreateIn = (outlineView.parent(forItem: item) as? Folder) ?? rootFolder
-        } else if let folder = item as? Folder {
+        if let _ = item as? BrowseFileItem {
+            folderToCreateIn = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
+        } else if let folder = item as? BrowseFolderItem {
             folderToCreateIn = folder
         } else {
-            folderToCreateIn = rootFolder
+            folderToCreateIn = rootFolderItem
         }
         
-        guard let newFile = try? folderToCreateIn.createSubfolder(named: "newfolder") else { return }
-        let index = folderToCreateIn.allItems.index(of: newFile) ?? 0
+        guard let newFile = try? folderToCreateIn.folder.createSubfolder(named: "newfolder") else { return }
+        folderToCreateIn.refreshAllItems()
+        let index = folderToCreateIn.folder.allItems.index(of: newFile) ?? 0
         let parent: Any?
         
-        if folderToCreateIn == rootFolder {
+        if folderToCreateIn == rootFolderItem {
             parent = nil
         } else {
             parent = folderToCreateIn
@@ -111,21 +93,22 @@ class BrowseViewController: NSViewController {
     }
     
     @objc func deleteSelectedFileSystemidem() {
-        guard let item = outlineView.item(atRow: outlineView.selectedRow) as? FileSystem.Item else { return }
+        guard let item = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem else { return }
         
     
-        let containedFolder = (outlineView.parent(forItem: item) as? Folder) ?? rootFolder
+        let containedFolder = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
 
         let parent: Any?
 
-        if containedFolder == rootFolder {
+        if containedFolder == rootFolderItem {
             parent = nil
         } else {
             parent = containedFolder
         }
 
-        guard let index = containedFolder.allItems.index(of: item) else { return }
-        try? item.trash()
+        guard let index = containedFolder.folder.allItems.index(of: item.item) else { return }
+        try? item.item.trash()
+        containedFolder.refreshAllItems()
         outlineView.item
         outlineView.removeItems(at: [index], inParent: parent, withAnimation: .slideUp)
         didSelectFile(nil)
@@ -152,29 +135,29 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let _ = item as? File {
+        if let _ = item as? BrowseFileItem {
             return 0
-        } else if let folder = item as? Folder {
+        } else if let folder = item as? BrowseFolderItem {
             return folder.allItemsCount
         } else if item == nil {
-            return rootFolder.allItemsCount
+            return rootFolderItem.allItemsCount
         }
 
         return 0
     }
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard let newFolder = item as? Folder else {
-            return rootFolder.allItems[index]
+        guard let newFolder = item as? BrowseFolderItem else {
+            return rootFolderItem.allItems[index]
         }
 
         return newFolder.allItems[index]
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let _ = item as? File {
+        if let _ = item as? BrowseFileItem {
             return false
-        } else if let _ = item as? Folder {
+        } else if let _ = item as? BrowseFolderItem {
             return true
         }
 
@@ -184,13 +167,13 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         let fileCell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: FileSystemItemCell.identifier), owner: self) as? FileSystemItemCell
 
-        if let fileSystemItem = item as? FileSystem.Item {
-            fileCell?.imageView?.image = NSWorkspace.shared.icon(forFile: fileSystemItem.path)
-            fileCell?.textField?.stringValue = fileSystemItem.name
-            fileCell?.fileSystemItem = fileSystemItem
+        if let fileSystemItem = item as? BrowseFileSystemItem {
+            fileCell?.imageView?.image = NSWorkspace.shared.icon(forFile: fileSystemItem.item.path)
+            fileCell?.textField?.stringValue = fileSystemItem.item.name
+            fileCell?.fileSystemItem = fileSystemItem.item
             
-            guard let file = fileSystemItem as? File,
-            let text = try? file.readAsString(),
+            guard let file = fileSystemItem as? BrowseFileItem,
+            let text = try? file.file.readAsString(),
             text != "" else {
                 fileCell?.textPreviewTextField.isHidden = true
                 return fileCell
@@ -223,24 +206,33 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             guard let item = outlineView.item(atRow: row) else { return }
             selectFile(item: item)
             outlineView.scrollRowToVisible(row)
+            
+            view.window?.makeFirstResponder(outlineView)
+            
+            if let rowView = rowView.view(atColumn: 0) as? FileSystemItemCell {
+                    rowView.fileNameTextField.becomeFirstResponder()
+                view.window?.makeFirstResponder(rowView.fileNameTextField)
+            }
+            
+            view.window?.makeFirstResponder(rowView)
         }
     }
     
     // MARK: - Drag n Drop
     
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        guard let file = item as? FileSystem.Item else { return nil }
+        guard let file = item as? BrowseFileItem else { return nil }
         outlineView.selectRowIndexes([outlineView.row(forItem: item)], byExtendingSelection: false)
         
         let pasteboardItem = NSPasteboardItem()
-        pasteboardItem.setString(file.path, forType: .fileURL)
+        pasteboardItem.setString(file.item.path, forType: .fileURL)
         return pasteboardItem
     }
     
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        if item == nil{
+        if item == nil {
             return .move
-        } else if item is Folder {
+        } else if item is BrowseFolderItem {
             return .move
         }
         
@@ -248,71 +240,52 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
     
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        var destinationFolder: Folder?
         
-        if item == nil {
-            destinationFolder = rootFolder
-        } else if let itemFolder = item as? Folder {
-            destinationFolder = itemFolder
-        } else {
-            destinationFolder = nil
-        }
+        let destinationBrowseFolderItem = (item as? BrowseFolderItem) ?? rootFolderItem
+        guard let selectedBrowseFileSystemitem = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileItem else { return false }
         
-        guard let folder = destinationFolder,
-            let file = outlineView.item(atRow: outlineView.selectedRow) as? FileSystem.Item else { return false }
         
-        var parent: Folder? = outlineView.parent(forItem: file) as? Folder ?? rootFolder
+        let parentBrowseItem: BrowseFolderItem? = {
+            if let parent = outlineView.parent(forItem: selectedBrowseFileSystemitem) as? BrowseFolderItem {
+                return parent
+            }
+            
+            return nil
+        }()
+        
+        let moveDestinationBrowseItem: BrowseFolderItem? = {
+            if destinationBrowseFolderItem == rootFolderItem {
+                return nil
+            }
+            
+            return destinationBrowseFolderItem
+        }()
+        
+        let oldIndex: Int = {
+            if let parent = parentBrowseItem {
+                return parent.allItems.index(of: selectedBrowseFileSystemitem) ?? 0
+            }
+            
+            return rootFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0
+        }()
         
         do {
-            let oldIndex = parent?.allItems.index(of: file)
-            try file.move(to: folder)
-            let newIndex = folder.allItems.index(of: file)
-            
-            if parent == rootFolder {
-                parent = nil
-            }
-            
-            if destinationFolder == rootFolder {
-                destinationFolder = nil
-            }
-            
-            outlineView.moveItem(at: oldIndex ?? 0, inParent: parent, to: newIndex ?? 0, inParent: destinationFolder)
-            
-            return true
+            try selectedBrowseFileSystemitem.item.move(to: destinationBrowseFolderItem.folder)
+            destinationBrowseFolderItem.refreshAllItems()
+            (parentBrowseItem ?? rootFolderItem).refreshAllItems()
+            outlineView.moveItem(at: oldIndex, inParent: parentBrowseItem, to: destinationBrowseFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0, inParent: moveDestinationBrowseItem)
+            outlineView.reloadItem(destinationBrowseFolderItem)
         } catch {
             return false
         }
+        
+        return true
     }
     
     
     private func selectFile(item: Any) {
-        if let file = item as? File {
+        if let file = item as? BrowseFileItem{
             didSelectFile(file)
         }
-    }
-}
-
-protocol MenuOutlineViewDelegate: NSOutlineViewDelegate {
-    func outlineView(outlineView: NSOutlineView, menuForItem item: Any) -> NSMenu?
-
-    func outlineView(menuForNoItemIn outlineView: NSOutlineView) -> NSMenu?
-}
-
-class MenuOutlineView: NSOutlineView {
-    override func menu(for event: NSEvent) -> NSMenu? {
-        guard let delegate = delegate as? MenuOutlineViewDelegate else { return nil }
-
-        let point = convert(event.locationInWindow, from: nil)
-        let row = self.row(at: point)
-        let item = self.item(atRow: row)
-
-        selectRowIndexes([row], byExtendingSelection: false)
-
-        if (item == nil) {
-            deselectAll(nil)
-            return delegate.outlineView(menuForNoItemIn: self)
-        }
-
-        return delegate.outlineView(outlineView: self, menuForItem: item!)
     }
 }

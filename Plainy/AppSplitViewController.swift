@@ -23,18 +23,18 @@ class AppSplitViewController: NSSplitViewController {
     }
 
     private func installCallbacks() {
-        browseViewController?.didSelectFile = { [weak self] file in
-            self?.editorViewController?.file = file
+        browseViewController?.didSelectFile = { [weak self] browseFile in
+            self?.editorViewController?.browseFile = browseFile
         }
         
         preferencesManager.didChangeRootPath = { [weak self] path in
             self?.browseViewController?.updateFiles(rootPath: path)
-            self?.editorViewController?.file = nil
+            self?.editorViewController?.browseFile = nil
         }
         
         ShortCutManager.shared.saveAction = { [weak self] in
             self?.editorViewController?.save()
-            self?.browseViewController?.update(file: self?.editorViewController?.file)
+            self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
         }
         
         ShortCutManager.shared.newFileAction = { [weak self] in
