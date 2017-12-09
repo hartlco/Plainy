@@ -6,22 +6,22 @@
 import Foundation
 import Files
 
-protocol BrowseFileSystemItem {
-    var item: FileSystem.Item { get }
+class BrowseFileSystemItem: Equatable {
+    static func ==(lhs: BrowseFileSystemItem, rhs: BrowseFileSystemItem) -> Bool {
+        return lhs.item.path == rhs.item.path
+    }
+    
+    var item: FileSystem.Item
+    
+    init(item: FileSystem.Item) {
+        self.item = item
+    }
 }
 
 class BrowseFolderItem: BrowseFileSystemItem {
     var parent: BrowseFolderItem?
     
-    static func ==(lhs: BrowseFolderItem, rhs: BrowseFolderItem) -> Bool {
-        return lhs.item.name == rhs.item.name
-    }
-    
     let folder: Folder
-    
-    var item: FileSystem.Item {
-        return folder
-    }
     
     lazy var allItems: [BrowseFileSystemItem] = {
         return uncachedAllItems
@@ -55,17 +55,15 @@ class BrowseFolderItem: BrowseFileSystemItem {
     init(folder: Folder, parent: BrowseFolderItem?) {
         self.folder = folder
         self.parent = parent
+        super.init(item: folder)
     }
 }
 
 class BrowseFileItem: BrowseFileSystemItem {
     let file: File
     
-    var item: FileSystem.Item {
-        return file
-    }
-    
     init(file: File) {
         self.file = file
+        super.init(item: file)
     }
 }
