@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */; };
 		5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869591FDAFAD600BC9BDF /* Models.swift */; };
+		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
 		5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; };
 		5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B68A7F01FD27127007849CE /* Files.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B68A7EF1FD27127007849CE /* Files.framework.dSYM */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+Extensions.swift"; sourceTree = "<group>"; };
 		5B1869591FDAFAD600BC9BDF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
 		5B630BD71FD5E722006D34FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B68A7EA1FD270F9007849CE /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
 		5B68A7EF1FD27127007849CE /* Files.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Files.framework.dSYM; path = Carthage/Build/Mac/Files.framework.dSYM; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				C5998B001FD013100096858D /* Info.plist */,
 				C5998B011FD013100096858D /* Plainy.entitlements */,
 				5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */,
+				5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */,
 			);
 			path = Plainy;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */,
 				C5D4C6201FD03E7C00A059F2 /* AppSplitViewController.swift in Sources */,
 				C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */,
+				5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */,
 				5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */,
 				C5D4C6221FD045C600A059F2 /* BrowseViewController.swift in Sources */,
 				5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */,
