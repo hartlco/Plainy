@@ -105,7 +105,7 @@ class BrowseViewController: NSViewController {
             parent = containedFolder
         }
 
-        guard let index = containedFolder.folder.allItems.index(of: item.item) else { return }
+        guard let index = containedFolder.allItems.index(of: item) else { return }
         try? item.item.trash()
         containedFolder.refreshAllItems()
         outlineView.item
@@ -271,7 +271,9 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             destinationBrowseFolderItem.refreshAllItems()
             (parentBrowseItem ?? rootFolderItem).refreshAllItems()
             outlineView.moveItem(at: oldIndex, inParent: parentBrowseItem, to: destinationBrowseFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0, inParent: moveDestinationBrowseItem)
-//            outlineView.reloadItem(destinationBrowseFolderItem)
+            
+            outlineView.reloadData()
+            selectFile(item: nil)
         } catch {
             return false
         }
@@ -280,8 +282,12 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
     
     
-    private func selectFile(item: Any) {
-        if let file = item as? BrowseFileItem{
+    private func selectFile(item: Any?) {
+        if item == nil {
+            didSelectFile(nil)
+        }
+        
+        if let file = item as? BrowseFileItem {
             didSelectFile(file)
         }
     }
