@@ -237,11 +237,16 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
     
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        
         let destinationBrowseFolderItem = (item as? BrowseFolderItem) ?? rootFolderItem
-        guard let selectedBrowseFileSystemitem = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem else { return false }
+        if let selectedBrowseFileSystemitem = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem,
+            selectedBrowseFileSystemitem.item.path == info.draggingPasteboard().string(forType: .fileURL) {
+             return acceptInternalDrop(inDestination: destinationBrowseFolderItem, selectedBrowseFileSystemitem: selectedBrowseFileSystemitem, childIndex: index)
+        }
         
-        
+        return acceptExternalDrop(inDestination: destinationBrowseFolderItem, info: info, childIndex: index)
+    }
+    
+    private func acceptInternalDrop(inDestination destinationBrowseFolderItem: BrowseFolderItem, selectedBrowseFileSystemitem: BrowseFileSystemItem, childIndex index: Int) -> Bool {
         let parentBrowseItem: BrowseFolderItem? = {
             if let parent = outlineView.parent(forItem: selectedBrowseFileSystemitem) as? BrowseFolderItem {
                 return parent
@@ -281,6 +286,21 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         return true
     }
     
+    private func acceptExternalDrop(inDestination destinationBrowseFolderItem: BrowseFolderItem, info: NSDraggingInfo, childIndex index: Int) -> Bool {
+        guard let url = NSURL(from: info.draggingPasteboard()) as URL?,
+            let file = try? File(path: url.path) else { return false }
+        
+        do {
+            try file.copy(to: destinationBrowseFolderItem.folder)
+            destinationBrowseFolderItem.refreshAllItems()
+            outlineView.reloadData()
+            selectFile(item: nil)
+            
+            return true
+        } catch {
+            return false
+        }
+    }
     
     private func selectFile(item: Any?) {
         if item == nil {
