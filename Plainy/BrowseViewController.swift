@@ -212,22 +212,13 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             guard let item = outlineView.item(atRow: row) else { return }
             selectFile(item: item)
             outlineView.scrollRowToVisible(row)
-            
-            view.window?.makeFirstResponder(outlineView)
-            
-            if let rowView = rowView.view(atColumn: 0) as? FileSystemItemCell {
-                    rowView.fileNameTextField.becomeFirstResponder()
-                view.window?.makeFirstResponder(rowView.fileNameTextField)
-            }
-            
-            view.window?.makeFirstResponder(rowView)
         }
     }
     
     // MARK: - Drag n Drop
     
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        guard let file = item as? BrowseFileItem else { return nil }
+        guard let file = item as? BrowseFileSystemItem else { return nil }
         outlineView.selectRowIndexes([outlineView.row(forItem: item)], byExtendingSelection: false)
         
         let pasteboardItem = NSPasteboardItem()
@@ -248,7 +239,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
         
         let destinationBrowseFolderItem = (item as? BrowseFolderItem) ?? rootFolderItem
-        guard let selectedBrowseFileSystemitem = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileItem else { return false }
+        guard let selectedBrowseFileSystemitem = outlineView.item(atRow: outlineView.selectedRow) as? BrowseFileSystemItem else { return false }
         
         
         let parentBrowseItem: BrowseFolderItem? = {
@@ -280,7 +271,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             destinationBrowseFolderItem.refreshAllItems()
             (parentBrowseItem ?? rootFolderItem).refreshAllItems()
             outlineView.moveItem(at: oldIndex, inParent: parentBrowseItem, to: destinationBrowseFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0, inParent: moveDestinationBrowseItem)
-            outlineView.reloadItem(destinationBrowseFolderItem)
+//            outlineView.reloadItem(destinationBrowseFolderItem)
         } catch {
             return false
         }
