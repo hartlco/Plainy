@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */; };
 		5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869591FDAFAD600BC9BDF /* Models.swift */; };
+		5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */; };
 		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
 		5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; };
 		5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+Extensions.swift"; sourceTree = "<group>"; };
 		5B1869591FDAFAD600BC9BDF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
 		5B630BD71FD5E722006D34FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B68A7EA1FD270F9007849CE /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
+				5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */,
 				5B630BD71FD5E722006D34FA /* README.md */,
 				5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */,
 				5B68A7EF1FD27127007849CE /* Files.framework.dSYM */,
@@ -220,6 +223,7 @@
 				C5998AF21FD013100096858D /* Resources */,
 				5B68A7ED1FD270F9007849CE /* Embed Frameworks */,
 				5B68A7EE1FD2710B007849CE /* Carthage symbols */,
+				5B1A61501FDF203700B53FD2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -317,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */,
 				C5998AFC1FD013100096858D /* Assets.xcassets in Resources */,
 				C5998AFF1FD013100096858D /* Main.storyboard in Resources */,
 			);
@@ -337,6 +342,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B1A61501FDF203700B53FD2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which mint >/dev/null; then\nmint run realm/SwiftLint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5998AF01FD013100096858D /* Sources */ = {

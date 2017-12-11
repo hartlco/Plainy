@@ -12,7 +12,7 @@ extension Folder {
         let allFiles: [FileSystem.Item] = Array(files)
         return folders + allFiles
     }
-    
+
     var allItemsCount: Int {
         return subfolders.count + files.count
     }

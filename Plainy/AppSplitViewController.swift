@@ -16,9 +16,9 @@ class AppSplitViewController: NSSplitViewController {
 
         browseViewController = splitViewItems.first?.viewController as?BrowseViewController
         editorViewController = splitViewItems.last?.viewController as? EditorViewController
-        
+
         browseViewController?.updateFiles(rootPath: preferencesManager.rootPath)
-        
+
         installCallbacks()
     }
 
@@ -26,28 +26,28 @@ class AppSplitViewController: NSSplitViewController {
         browseViewController?.didSelectFile = { [weak self] browseFile in
             self?.editorViewController?.browseFile = browseFile
         }
-        
+
         preferencesManager.didChangeRootPath = { [weak self] path in
             self?.browseViewController?.updateFiles(rootPath: path)
             self?.editorViewController?.browseFile = nil
         }
-        
+
         ShortCutManager.shared.saveAction = { [weak self] in
             self?.editorViewController?.save()
             self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
         }
-        
+
         ShortCutManager.shared.newFileAction = { [weak self] in
             self?.browseViewController?.newFileOnSelectedFolder()
         }
-        
+
         ShortCutManager.shared.newFolderAction = { [weak self] in
             self?.browseViewController?.newFolderOnSelectedFolder()
         }
-        
+
         ShortCutManager.shared.deleteAction = { [weak self] in
             self?.browseViewController?.deleteSelectedFileSystemidem()
-            
+
         }
     }
 

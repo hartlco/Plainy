@@ -8,7 +8,7 @@ import Files
 
 class FileSystemItemCell: NSTableCellView {
     static let identifier = "FileCell"
-    
+
     @IBOutlet weak var fileNameTextField: NSTextField!
     var fileSystemItem: BrowseFileSystemItem?
     @IBOutlet weak var textPreviewTextField: NSTextField! {
@@ -21,11 +21,11 @@ class FileSystemItemCell: NSTableCellView {
 extension FileSystemItemCell: NSTextFieldDelegate {
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
         try? fileSystemItem?.item.rename(to: fileNameTextField.stringValue)
-        
+
         if let browseFolder = fileSystemItem as? BrowseFolderItem {
             browseFolder.refreshAllItems()
         }
-        
+
         return true
     }
 }

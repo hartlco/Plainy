@@ -10,9 +10,9 @@ class BrowseFileSystemItem: Equatable {
     static func ==(lhs: BrowseFileSystemItem, rhs: BrowseFileSystemItem) -> Bool {
         return lhs.item.path == rhs.item.path
     }
-    
+
     var item: FileSystem.Item
-    
+
     init(item: FileSystem.Item) {
         self.item = item
     }
@@ -20,13 +20,13 @@ class BrowseFileSystemItem: Equatable {
 
 class BrowseFolderItem: BrowseFileSystemItem {
     var parent: BrowseFolderItem?
-    
+
     let folder: Folder
-    
+
     lazy var allItems: [BrowseFileSystemItem] = {
         return uncachedAllItems
     }()
-    
+
     private var uncachedAllItems: [BrowseFileSystemItem] {
         let all = folder.allItems
         let mappedItems: [BrowseFileSystemItem] = all.flatMap({ item in
@@ -35,23 +35,21 @@ class BrowseFolderItem: BrowseFileSystemItem {
             } else if let fileItem = item as? File {
                 return BrowseFileItem(file: fileItem)
             }
-            
+
             return nil
         })
-        
+
         return mappedItems
     }
-    
+
     func refreshAllItems() {
         allItems = uncachedAllItems
     }
-    
+
     var allItemsCount: Int {
         return allItems.count
     }
-    
-    
-    
+
     init(folder: Folder, parent: BrowseFolderItem?) {
         self.folder = folder
         self.parent = parent
@@ -61,7 +59,7 @@ class BrowseFolderItem: BrowseFileSystemItem {
 
 class BrowseFileItem: BrowseFileSystemItem {
     let file: File
-    
+
     init(file: File) {
         self.file = file
         super.init(item: file)

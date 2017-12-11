@@ -30,30 +30,29 @@ class EditorViewController: NSViewController {
             textView.string = data
         }
     }
-    
+
     private let notificationCenter: NotificationCenter = .default
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.saveOnLoosingFocus), name: NSWindow.didResignKeyNotification, object: nil)
     }
-    
+
     deinit {
         notificationCenter.removeObserver(self)
     }
-    
+
     @objc private func saveOnLoosingFocus() {
         ShortCutManager.shared.saveAction!()
     }
-    
+
     func save() {
         guard let browseFile = browseFile,
         let readString = try? browseFile.file.readAsString(),
         textView.string != readString  else { return }
-        
+
         try? browseFile.file.write(string: textView.string)
     }
-    
 
     @IBOutlet private var textView: NSTextView! {
         didSet {
@@ -68,4 +67,3 @@ extension EditorViewController: NSTextViewDelegate {
         ShortCutManager.shared.saveAction!()
     }
 }
-

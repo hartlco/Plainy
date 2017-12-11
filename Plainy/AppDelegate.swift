@@ -19,15 +19,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func newFile(_ sender: Any) {
         ShortCutManager.shared.newFileAction?()
     }
-    
+
     @IBAction func newFolder(_ sender: Any) {
         ShortCutManager.shared.newFolderAction?()
     }
-    
+
     @IBAction func save(_ sender: Any) {
         ShortCutManager.shared.saveAction?()
     }
-    
+
     @IBAction func deleteAction(_ sender: Any) {
         ShortCutManager.shared.deleteAction?()
     }
@@ -44,17 +44,17 @@ class ShortCutManager {
 
 class PreferencesManager {
     static let shared = PreferencesManager()
-    
+
     private let userDefaults = UserDefaults.standard
-    
-    var didChangeRootPath: (String) -> () = { _ in }
-    
+
+    var didChangeRootPath: (String) -> Void = { _ in }
+
     var rootPath: String {
         get {
             guard let savedPath = userDefaults.string(forKey: #function) else { return Folder.home.path }
             return savedPath
         }
-        
+
         set {
             if newValue != rootPath {
                 userDefaults.set(newValue, forKey: #function)
