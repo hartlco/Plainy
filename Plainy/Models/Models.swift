@@ -7,7 +7,7 @@ import Foundation
 import Files
 
 class BrowseFileSystemItem: Equatable {
-    static func ==(lhs: BrowseFileSystemItem, rhs: BrowseFileSystemItem) -> Bool {
+    static func == (lhs: BrowseFileSystemItem, rhs: BrowseFileSystemItem) -> Bool {
         return lhs.item.path == rhs.item.path
     }
 

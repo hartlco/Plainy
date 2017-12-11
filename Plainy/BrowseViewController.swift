@@ -124,10 +124,14 @@ class BrowseViewController: NSViewController {
 
     private var addMenu: NSMenu {
         let newFileMenu = NSMenu(title: "New file")
-        newFileMenu.addItem(NSMenuItem(title: "New file", action: #selector(BrowseViewController.newFileOnSelectedFolder), keyEquivalent: ""))
-        newFileMenu.addItem(NSMenuItem(title: "New folder", action: #selector(BrowseViewController.newFolderOnSelectedFolder), keyEquivalent: ""))
-        newFileMenu.addItem(NSMenuItem(title: "Delete", action: #selector(BrowseViewController.deleteSelectedFileSystemidem), keyEquivalent: ""))
-        newFileMenu.addItem(NSMenuItem(title: "Open in Finder", action: #selector(BrowseViewController.openSelectedFileInFinder), keyEquivalent: ""))
+        newFileMenu.addItem(NSMenuItem(title: "New file",
+                                       action: #selector(BrowseViewController.newFileOnSelectedFolder), keyEquivalent: ""))
+        newFileMenu.addItem(NSMenuItem(title: "New folder",
+                                       action: #selector(BrowseViewController.newFolderOnSelectedFolder), keyEquivalent: ""))
+        newFileMenu.addItem(NSMenuItem(title: "Delete",
+                                       action: #selector(BrowseViewController.deleteSelectedFileSystemidem), keyEquivalent: ""))
+        newFileMenu.addItem(NSMenuItem(title: "Open in Finder",
+                                       action: #selector(BrowseViewController.openSelectedFileInFinder), keyEquivalent: ""))
         return newFileMenu
     }
 }
@@ -302,7 +306,8 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         return true
     }
 
-    private func acceptExternalDrop(inDestination destinationBrowseFolderItem: BrowseFolderItem, info: NSDraggingInfo, childIndex index: Int) -> Bool {
+    private func acceptExternalDrop(inDestination destinationBrowseFolderItem: BrowseFolderItem,
+                                    info: NSDraggingInfo, childIndex index: Int) -> Bool {
         guard let url = NSURL(from: info.draggingPasteboard()) as URL?,
             let file = try? File(path: url.path) else { return false }
 

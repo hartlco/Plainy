@@ -16,7 +16,6 @@
 		5B68A7F01FD27127007849CE /* Files.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B68A7EF1FD27127007849CE /* Files.framework.dSYM */; };
 		5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */; };
 		5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */; };
-		5B7449B71FD3D6DA00B69A52 /* Witness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; };
 		5B7449B91FD3D6E600B69A52 /* Witness.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */; };
 		5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; };
 		5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -109,7 +108,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */,
-				5B7449B71FD3D6DA00B69A52 /* Witness.framework in Frameworks */,
 				5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +275,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Martin Hartl";
 				TargetAttributes = {
 					C5998AF31FD013100096858D = {
