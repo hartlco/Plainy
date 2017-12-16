@@ -33,6 +33,8 @@ class BrowseViewController: NSViewController {
     }
 
     func update(file: BrowseFileItem?) {
+        guard let file = file else { return }
+
         outlineView.reloadItem(file)
     }
 
@@ -267,6 +269,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
 
     private func acceptInternalDrop(inDestination destinationBrowseFolderItem: BrowseFolderItem,
                                     selectedBrowseFileSystemitem: BrowseFileSystemItem, childIndex index: Int) -> Bool {
+        selectFile(item: nil)
         let parentBrowseItem: BrowseFolderItem? = {
             if let parent = outlineView.parent(forItem: selectedBrowseFileSystemitem) as? BrowseFolderItem {
                 return parent
@@ -291,17 +294,9 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             return rootFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0
         }()
 
-        do {
-            try selectedBrowseFileSystemitem.item.move(to: destinationBrowseFolderItem.folder)
-            destinationBrowseFolderItem.refreshAllItems()
-            (parentBrowseItem ?? rootFolderItem).refreshAllItems()
-//            outlineView.moveItem(at: oldIndex, inParent: parentBrowseItem, to: destinationBrowseFolderItem.allItems.index(of: selectedBrowseFileSystemitem) ?? 0, inParent: moveDestinationBrowseItem)
-
-            outlineView.reloadData()
-            selectFile(item: nil)
-        } catch {
-            return false
-        }
+        guard let newIndex = selectedBrowseFileSystemitem.move(to: destinationBrowseFolderItem) else { return false }
+        outlineView.collapseItem(selectedBrowseFileSystemitem, collapseChildren: true)
+        outlineView.moveItem(at: oldIndex, inParent: parentBrowseItem, to: newIndex, inParent: moveDestinationBrowseItem)
 
         return true
     }

@@ -8,7 +8,7 @@ import Files
 
 class BrowseFileSystemItem: Equatable {
     static func == (lhs: BrowseFileSystemItem, rhs: BrowseFileSystemItem) -> Bool {
-        return lhs.item.path == rhs.item.path
+        return URL(fileURLWithPath: lhs.item.path) == URL(fileURLWithPath: rhs.item.path)
     }
 
     var item: FileSystem.Item
@@ -16,12 +16,16 @@ class BrowseFileSystemItem: Equatable {
     init(item: FileSystem.Item) {
         self.item = item
     }
+
+    func move(to folderItem: BrowseFolderItem) -> Int? {
+        return nil
+    }
 }
 
 class BrowseFolderItem: BrowseFileSystemItem {
     var parent: BrowseFolderItem?
 
-    let folder: Folder
+    var folder: Folder
 
     lazy var allItems: [BrowseFileSystemItem] = {
         return uncachedAllItems
@@ -43,7 +47,13 @@ class BrowseFolderItem: BrowseFileSystemItem {
     }
 
     func refreshAllItems() {
-        allItems = uncachedAllItems
+        do {
+            folder = try Folder(path: folder.path)
+            item = folder
+            allItems = uncachedAllItems
+        } catch {
+            
+        }
     }
 
     var allItemsCount: Int {
@@ -55,13 +65,39 @@ class BrowseFolderItem: BrowseFileSystemItem {
         self.parent = parent
         super.init(item: folder)
     }
+
+    override func move(to folderItem: BrowseFolderItem) -> Int? {
+        do {
+            try folder.move(to: folderItem.folder)
+            folderItem.refreshAllItems()
+            refreshAllItems()
+            parent = folderItem
+            let index = folderItem.allItems.index(of: self)
+            return index
+        } catch {
+            return nil
+        }
+    }
 }
 
 class BrowseFileItem: BrowseFileSystemItem {
-    let file: File
+    var file: File
 
     init(file: File) {
         self.file = file
         super.init(item: file)
+    }
+
+    override func move(to folderItem: BrowseFolderItem) -> Int? {
+        do {
+            try file.move(to: folderItem.folder)
+            file = try File(path: file.path)
+            item = file
+            folderItem.refreshAllItems()
+            let index = folderItem.allItems.index(of: self)
+            return index
+        } catch {
+            return nil
+        }
     }
 }
