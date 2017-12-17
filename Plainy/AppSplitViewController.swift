@@ -5,6 +5,7 @@
 
 import Foundation
 import Cocoa
+import Files
 
 class AppSplitViewController: NSSplitViewController {
     private var browseViewController: BrowseViewController?
@@ -59,6 +60,17 @@ class AppSplitViewController: NSSplitViewController {
     private func showOpenQuickly() {
         let openQuicklyStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "OpenQuickly"), bundle: nil)
         guard let viewController = openQuicklyStoryboard.instantiateInitialController() as? OpenQuicklyViewController else { return }
+
+        viewController.didSelectFile = didSelectFromOpening(searchFile:)
+
         presentViewControllerAsSheet(viewController)
+    }
+
+    private func didSelectFromOpening(searchFile: SearchModel) {
+        guard let path = searchFile.path,
+            let file = try? File(path: path) else { return }
+
+        let fileItem = BrowseFileItem(file: file)
+        browseViewController?.didSelectFile(fileItem)
     }
 }
