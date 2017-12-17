@@ -69,6 +69,7 @@ class BrowseFolderItem: BrowseFileSystemItem {
     override func move(to folderItem: BrowseFolderItem) -> Int? {
         do {
             try folder.move(to: folderItem.folder)
+            parent?.refreshAllItems()
             folderItem.refreshAllItems()
             refreshAllItems()
             parent = folderItem

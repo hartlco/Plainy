@@ -19,6 +19,8 @@
 		5B7449B91FD3D6E600B69A52 /* Witness.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */; };
 		5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; };
 		5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
+		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
 		C5998AF81FD013100096858D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF71FD013100096858D /* AppDelegate.swift */; };
 		C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF91FD013100096858D /* EditorViewController.swift */; };
 		C5998AFC1FD013100096858D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5998AFB1FD013100096858D /* Assets.xcassets */; };
@@ -85,6 +87,8 @@
 		5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
 		5B7449B61FD3D6DA00B69A52 /* Witness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Witness.framework; path = Carthage/Build/Mac/Witness.framework; sourceTree = "<group>"; };
 		5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Witness.framework.dSYM; path = Carthage/Build/Mac/Witness.framework.dSYM; sourceTree = "<group>"; };
+		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
+		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
 		C5998AF41FD013100096858D /* Plainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5998AF71FD013100096858D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5998AF91FD013100096858D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -183,10 +187,12 @@
 				5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */,
 				C5998AFB1FD013100096858D /* Assets.xcassets */,
 				C5998AFD1FD013100096858D /* Main.storyboard */,
+				5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */,
 				C5998B001FD013100096858D /* Info.plist */,
 				C5998B011FD013100096858D /* Plainy.entitlements */,
 				5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */,
 				5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */,
+				5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */,
 			);
 			path = Plainy;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */,
+				5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */,
 				C5998AFC1FD013100096858D /* Assets.xcassets in Resources */,
 				C5998AFF1FD013100096858D /* Main.storyboard in Resources */,
 			);
@@ -372,6 +379,7 @@
 				5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */,
 				5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */,
 				C5998AF81FD013100096858D /* AppDelegate.swift in Sources */,
+				5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BC4C7AC1FE6466100252052 /* Base */,
+			);
+			name = OpenQuickly.storyboard;
+			sourceTree = "<group>";
+		};
 		C5998AFD1FD013100096858D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

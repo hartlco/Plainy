@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Fye-0k-eHY">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Open Quickly View Controller-->
+        <scene sceneID="lER-lD-m4p">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="Fye-0k-eHY" customClass="OpenQuicklyViewController" customModule="Plainy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="A4j-fl-Ywn">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w26-u3-A4F">
+                                <rect key="frame" x="0.0" y="250" width="450" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S4p-OP-f1O"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Open quickly" drawsBackground="YES" id="EkA-WN-FtI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="Fye-0k-eHY" id="X3A-6d-n9N"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="w26-u3-A4F" firstAttribute="top" secondItem="A4j-fl-Ywn" secondAttribute="top" id="Lo5-2S-Rvw"/>
+                            <constraint firstAttribute="trailing" secondItem="w26-u3-A4F" secondAttribute="trailing" id="ZoZ-NS-dmz"/>
+                            <constraint firstItem="w26-u3-A4F" firstAttribute="leading" secondItem="A4j-fl-Ywn" secondAttribute="leading" id="kLO-zA-ZGk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Xwj-HS-i2f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="1527"/>
+        </scene>
+    </scenes>
+</document>

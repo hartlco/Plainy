@@ -86,7 +86,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QDm-t0-4VI" secondAttribute="trailing" constant="12" id="ACM-nA-DA0"/>
                             <constraint firstItem="0bj-OB-mbV" firstAttribute="leading" secondItem="nFB-3e-a3a" secondAttribute="leading" constant="12" id="EZv-KR-ChY"/>
-                            <constraint firstItem="QDm-t0-4VI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nFB-3e-a3a" secondAttribute="leading" constant="20" symbolic="YES" id="IUz-jN-eXG"/>
                             <constraint firstAttribute="trailing" secondItem="0bj-OB-mbV" secondAttribute="trailing" constant="12" id="Qf7-Wb-se5"/>
                             <constraint firstItem="0bj-OB-mbV" firstAttribute="top" secondItem="nFB-3e-a3a" secondAttribute="top" constant="12" id="VQr-dT-4CE"/>
                             <constraint firstItem="QDm-t0-4VI" firstAttribute="top" secondItem="0bj-OB-mbV" secondAttribute="bottom" constant="12" id="nxr-m0-Xvh"/>
@@ -724,6 +723,12 @@ CA
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -853,6 +858,37 @@ CA
                 <customObject id="73w-v8-qNb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87" y="962"/>
+        </scene>
+        <!--Open Quickly View Controller-->
+        <scene sceneID="lER-lD-m4p">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="Fye-0k-eHY" customClass="OpenQuicklyViewController" customModule="Plainy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="A4j-fl-Ywn">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w26-u3-A4F">
+                                <rect key="frame" x="0.0" y="250" width="450" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S4p-OP-f1O"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Open quickly" drawsBackground="YES" id="EkA-WN-FtI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="w26-u3-A4F" firstAttribute="top" secondItem="A4j-fl-Ywn" secondAttribute="top" id="Lo5-2S-Rvw"/>
+                            <constraint firstAttribute="trailing" secondItem="w26-u3-A4F" secondAttribute="trailing" id="ZoZ-NS-dmz"/>
+                            <constraint firstItem="w26-u3-A4F" firstAttribute="leading" secondItem="A4j-fl-Ywn" secondAttribute="leading" id="kLO-zA-ZGk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Xwj-HS-i2f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="1527"/>
         </scene>
         <!--Browse View Controller-->
         <scene sceneID="h95-aq-gBK">

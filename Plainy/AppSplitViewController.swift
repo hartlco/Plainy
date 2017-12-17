@@ -47,8 +47,16 @@ class AppSplitViewController: NSSplitViewController {
 
         ShortCutManager.shared.deleteAction = { [weak self] in
             self?.browseViewController?.deleteSelectedFileSystemidem()
+        }
 
+        ShortCutManager.shared.presentOpenQuickly = { [weak self] in
+            self?.showOpenQuickly()
         }
     }
 
+    private func showOpenQuickly() {
+        let openQuicklyStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "OpenQuickly"), bundle: nil)
+        guard let viewController = openQuicklyStoryboard.instantiateInitialController() as? OpenQuicklyViewController else { return }
+        presentViewControllerAsSheet(viewController)
+    }
 }

@@ -31,6 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func deleteAction(_ sender: Any) {
         ShortCutManager.shared.deleteAction?()
     }
+
+    @IBAction func openQuicklyAction(_ sender: Any) {
+        ShortCutManager.shared.presentOpenQuickly?()
+    }
 }
 
 class ShortCutManager {
@@ -40,6 +44,7 @@ class ShortCutManager {
     var newFileAction: (() -> Void)?
     var newFolderAction: (() -> Void)?
     var deleteAction: (() -> Void)?
+    var presentOpenQuickly: (() -> Void)?
 }
 
 class PreferencesManager {
