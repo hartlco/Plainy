@@ -5,16 +5,19 @@
 
 import Cocoa
 import Files
+import CoreData
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        SearchModelController.shared.index()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        return SearchModelController.shared.terminate(sender)
     }
+
+    // MARK: - Shortcuts
 
     @IBAction func newFile(_ sender: Any) {
         ShortCutManager.shared.newFileAction?()

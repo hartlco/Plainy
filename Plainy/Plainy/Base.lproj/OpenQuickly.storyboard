@@ -34,6 +34,9 @@
                             <constraint firstItem="w26-u3-A4F" firstAttribute="leading" secondItem="A4j-fl-Ywn" secondAttribute="leading" id="kLO-zA-ZGk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="w26-u3-A4F" id="hof-i1-Xp7"/>
+                    </connections>
                 </viewController>
                 <customObject id="Xwj-HS-i2f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

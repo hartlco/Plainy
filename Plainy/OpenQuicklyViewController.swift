@@ -5,9 +5,10 @@
 
 import Cocoa
 import Carbon.HIToolbox
+import CoreData
 
 class OpenQuicklyViewController: NSViewController {
-
+    @IBOutlet weak var textField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -24,6 +25,11 @@ class OpenQuicklyViewController: NSViewController {
 }
 
 extension OpenQuicklyViewController: NSTextFieldDelegate {
+    override func controlTextDidChange(_ obj: Notification) {
+        let results = SearchModelController.shared.files(containing: textField.stringValue)
+        print("Found \(results.count) results")
+    }
+
     override func cancelOperation(_ sender: Any?) {
         dismiss(nil)
     }

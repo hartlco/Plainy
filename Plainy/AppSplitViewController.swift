@@ -35,6 +35,8 @@ class AppSplitViewController: NSSplitViewController {
         ShortCutManager.shared.saveAction = { [weak self] in
             self?.editorViewController?.save()
             self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
+            guard let savingFile = self?.editorViewController?.browseFile else { return }
+            SearchModelController.shared.updateIndex(for: savingFile.file)
         }
 
         ShortCutManager.shared.newFileAction = { [weak self] in
