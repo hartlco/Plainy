@@ -5,6 +5,7 @@
 
 import Cocoa
 import Files
+import Notepad
 
 enum EditorFont {
     case menlo
@@ -18,6 +19,12 @@ enum EditorFont {
 }
 
 class EditorViewController: NSViewController {
+    var theme = Theme("one-dark") {
+        didSet {
+            updateTheme()
+        }
+    }
+
     var browseFile: BrowseFileItem? {
         didSet {
             guard let browseFile = browseFile,
@@ -31,10 +38,12 @@ class EditorViewController: NSViewController {
         }
     }
 
+    private let storage = Storage()
     private let notificationCenter: NotificationCenter = .default
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTheme()
         NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.saveOnLoosingFocus), name: NSWindow.didResignKeyNotification, object: nil)
     }
 
@@ -65,5 +74,14 @@ class EditorViewController: NSViewController {
 extension EditorViewController: NSTextViewDelegate {
     func textDidEndEditing(_ notification: Notification) {
         ShortCutManager.shared.saveAction!()
+    }
+}
+
+extension EditorViewController {
+    func updateTheme() {
+        storage.theme = theme
+        textView.backgroundColor = theme.backgroundColor
+        textView.insertionPointColor = theme.tintColor
+        textView.layoutManager?.replaceTextStorage(storage)
     }
 }

@@ -23,6 +23,18 @@
 		5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
 		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
+		5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; };
+		5BF35E101FE843A30062E7CA /* blues-clues.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E071FE843A20062E7CA /* blues-clues.json */; };
+		5BF35E111FE843A30062E7CA /* solarized-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E081FE843A30062E7CA /* solarized-dark.json */; };
+		5BF35E121FE843A30062E7CA /* one-light-custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E091FE843A30062E7CA /* one-light-custom.json */; };
+		5BF35E131FE843A30062E7CA /* one-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0A1FE843A30062E7CA /* one-dark.json */; };
+		5BF35E141FE843A30062E7CA /* one-dark-custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0B1FE843A30062E7CA /* one-dark-custom.json */; };
+		5BF35E151FE843A30062E7CA /* one-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0C1FE843A30062E7CA /* one-light.json */; };
+		5BF35E161FE843A30062E7CA /* base16-tomorrow-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0D1FE843A30062E7CA /* base16-tomorrow-light.json */; };
+		5BF35E171FE843A30062E7CA /* base16-tomorrow-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0E1FE843A30062E7CA /* base16-tomorrow-dark.json */; };
+		5BF35E181FE843A30062E7CA /* solarized-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0F1FE843A30062E7CA /* solarized-light.json */; };
+		5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; };
+		5BF35E1A1FE844780062E7CA /* Notepad.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5998AF81FD013100096858D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF71FD013100096858D /* AppDelegate.swift */; };
 		C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF91FD013100096858D /* EditorViewController.swift */; };
 		C5998AFC1FD013100096858D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5998AFB1FD013100096858D /* Assets.xcassets */; };
@@ -58,6 +70,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */,
+				5BF35E1A1FE844780062E7CA /* Notepad.framework in Embed Frameworks */,
 				5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -93,6 +106,16 @@
 		5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Witness.framework.dSYM; path = Carthage/Build/Mac/Witness.framework.dSYM; sourceTree = "<group>"; };
 		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
 		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
+		5BF35E011FE8434D0062E7CA /* Notepad.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Notepad.framework; path = Carthage/Build/Mac/Notepad.framework; sourceTree = "<group>"; };
+		5BF35E071FE843A20062E7CA /* blues-clues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "blues-clues.json"; path = "themes/blues-clues.json"; sourceTree = "<group>"; };
+		5BF35E081FE843A30062E7CA /* solarized-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "solarized-dark.json"; path = "themes/solarized-dark.json"; sourceTree = "<group>"; };
+		5BF35E091FE843A30062E7CA /* one-light-custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "one-light-custom.json"; path = "themes/one-light-custom.json"; sourceTree = "<group>"; };
+		5BF35E0A1FE843A30062E7CA /* one-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "one-dark.json"; path = "themes/one-dark.json"; sourceTree = "<group>"; };
+		5BF35E0B1FE843A30062E7CA /* one-dark-custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "one-dark-custom.json"; path = "themes/one-dark-custom.json"; sourceTree = "<group>"; };
+		5BF35E0C1FE843A30062E7CA /* one-light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "one-light.json"; path = "themes/one-light.json"; sourceTree = "<group>"; };
+		5BF35E0D1FE843A30062E7CA /* base16-tomorrow-light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "base16-tomorrow-light.json"; path = "themes/base16-tomorrow-light.json"; sourceTree = "<group>"; };
+		5BF35E0E1FE843A30062E7CA /* base16-tomorrow-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "base16-tomorrow-dark.json"; path = "themes/base16-tomorrow-dark.json"; sourceTree = "<group>"; };
+		5BF35E0F1FE843A30062E7CA /* solarized-light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "solarized-light.json"; path = "themes/solarized-light.json"; sourceTree = "<group>"; };
 		C5998AF41FD013100096858D /* Plainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5998AF71FD013100096858D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5998AF91FD013100096858D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +138,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */,
 				5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */,
+				5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */,
 				5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +180,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5BF35E061FE843960062E7CA /* themes */ = {
+			isa = PBXGroup;
+			children = (
+				5BF35E0E1FE843A30062E7CA /* base16-tomorrow-dark.json */,
+				5BF35E0D1FE843A30062E7CA /* base16-tomorrow-light.json */,
+				5BF35E071FE843A20062E7CA /* blues-clues.json */,
+				5BF35E0B1FE843A30062E7CA /* one-dark-custom.json */,
+				5BF35E0A1FE843A30062E7CA /* one-dark.json */,
+				5BF35E091FE843A30062E7CA /* one-light-custom.json */,
+				5BF35E0C1FE843A30062E7CA /* one-light.json */,
+				5BF35E081FE843A30062E7CA /* solarized-dark.json */,
+				5BF35E0F1FE843A30062E7CA /* solarized-light.json */,
+			);
+			name = themes;
+			sourceTree = "<group>";
+		};
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +203,7 @@
 				5B630BD71FD5E722006D34FA /* README.md */,
 				5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */,
 				5B68A7EF1FD27127007849CE /* Files.framework.dSYM */,
+				5BF35E011FE8434D0062E7CA /* Notepad.framework */,
 				5B7449B61FD3D6DA00B69A52 /* Witness.framework */,
 				5B68A7EA1FD270F9007849CE /* Files.framework */,
 				C5998AF61FD013100096858D /* Plainy */,
@@ -184,6 +226,7 @@
 		C5998AF61FD013100096858D /* Plainy */ = {
 			isa = PBXGroup;
 			children = (
+				5BF35E061FE843960062E7CA /* themes */,
 				5B1869581FDAFA8900BC9BDF /* Models */,
 				5B1869551FDAFA5400BC9BDF /* Extensions */,
 				C5998AF71FD013100096858D /* AppDelegate.swift */,
@@ -331,10 +374,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF35E171FE843A30062E7CA /* base16-tomorrow-dark.json in Resources */,
 				5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */,
 				5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */,
 				C5998AFC1FD013100096858D /* Assets.xcassets in Resources */,
+				5BF35E141FE843A30062E7CA /* one-dark-custom.json in Resources */,
+				5BF35E181FE843A30062E7CA /* solarized-light.json in Resources */,
 				C5998AFF1FD013100096858D /* Main.storyboard in Resources */,
+				5BF35E121FE843A30062E7CA /* one-light-custom.json in Resources */,
+				5BF35E101FE843A30062E7CA /* blues-clues.json in Resources */,
+				5BF35E151FE843A30062E7CA /* one-light.json in Resources */,
+				5BF35E131FE843A30062E7CA /* one-dark.json in Resources */,
+				5BF35E111FE843A30062E7CA /* solarized-dark.json in Resources */,
+				5BF35E161FE843A30062E7CA /* base16-tomorrow-light.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

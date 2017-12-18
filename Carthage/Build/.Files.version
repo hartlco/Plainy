@@ -2,7 +2,7 @@
   "Mac" : [
     {
       "name" : "Files",
-      "hash" : "a59faddeb61f73f9b43a5eda562b9a46f9060d75e690fadcb116f7921df85e43"
+      "hash" : "6bee415f75d5f74c53d22b3476337331082f9846f90de445d6110feb7bf0b15c"
     }
   ],
   "watchOS" : [
@@ -11,14 +11,14 @@
   "tvOS" : [
     {
       "name" : "Files",
-      "hash" : "ab14158755e900ce2ad04cda35b194aa8adb3f7024061c2ef94822cee4f9376c"
+      "hash" : "c41c6367a91111d651ace31d766f890ac178f6f83cf746fa99747ca3a72680aa"
     }
   ],
   "commitish" : "2.0.1",
   "iOS" : [
     {
       "name" : "Files",
-      "hash" : "8f37eee9220c3469a48adceeb5ea2598adbe2206081cfe18a77f4d40c8f418f2"
+      "hash" : "587f359429786ac0460b6483c710581c1b04bb7952beefb5b3bdb1d91965ec6e"
     }
   ]
 }
