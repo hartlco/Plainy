@@ -911,20 +911,20 @@ CA
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g30-ci-V41">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="44"/>
                                                                     <subviews>
                                                                         <imageView translatesAutoresizingMaskIntoConstraints="NO" id="mqk-mX-ICD">
-                                                                            <rect key="frame" x="0.0" y="15" width="32" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="15" width="24" height="14"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="32" id="lX4-ex-Uqb"/>
+                                                                                <constraint firstAttribute="width" constant="24" id="lX4-ex-Uqb"/>
                                                                             </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="NSActionTemplate" id="YVB-AX-a3F"/>
                                                                         </imageView>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-f5-xOt">
-                                                                            <rect key="frame" x="36" y="8" width="111" height="28"/>
+                                                                            <rect key="frame" x="28" y="8" width="127" height="28"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8yx-ED-oBt">
-                                                                                    <rect key="frame" x="-2" y="11" width="115" height="17"/>
+                                                                                    <rect key="frame" x="-2" y="11" width="131" height="17"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="YnD-8j-1Om">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -935,7 +935,7 @@ CA
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-Tu-UWI">
-                                                                                    <rect key="frame" x="-2" y="0.0" width="115" height="11"/>
+                                                                                    <rect key="frame" x="-2" y="0.0" width="131" height="11"/>
                                                                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="PPK-YG-AnH">
                                                                                         <font key="font" metaFont="system" size="8"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

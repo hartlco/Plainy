@@ -10,6 +10,7 @@ import CoreData
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
+//        NSApplication.shared.mainWindow?.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
         SearchModelController.shared.index()
     }
 
