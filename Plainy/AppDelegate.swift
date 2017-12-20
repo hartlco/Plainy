@@ -55,12 +55,16 @@ class PreferencesManager {
     static let shared = PreferencesManager()
 
     private let userDefaults = UserDefaults.standard
+    private let defaultFolderName = "Plainy"
 
     var didChangeRootPath: (String) -> Void = { _ in }
 
     var rootPath: String {
         get {
-            guard let savedPath = userDefaults.string(forKey: #function) else { return Folder.home.path }
+            guard let savedPath = userDefaults.string(forKey: #function) else {
+                let folder = (try? Folder.home.createSubfolder(named: defaultFolderName)) ?? (try? Folder.home.subfolder(named: defaultFolderName))
+                return folder!.path
+            }
             return savedPath
         }
 
