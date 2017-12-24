@@ -20,6 +20,8 @@ class BrowseFileSystemItem: Equatable {
     func move(to folderItem: BrowseFolderItem) -> Int? {
         return nil
     }
+
+    func rename(to newFilename: String) { }
 }
 
 class BrowseFolderItem: BrowseFileSystemItem {
@@ -79,6 +81,11 @@ class BrowseFolderItem: BrowseFileSystemItem {
             return nil
         }
     }
+
+    override func rename(to newFilename: String) {
+        try? item.rename(to: newFilename)
+        refreshAllItems()
+    }
 }
 
 class BrowseFileItem: BrowseFileSystemItem {
@@ -100,5 +107,9 @@ class BrowseFileItem: BrowseFileSystemItem {
         } catch {
             return nil
         }
+    }
+
+    override func rename(to newFilename: String) {
+        try? item.rename(to: newFilename)
     }
 }

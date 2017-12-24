@@ -122,7 +122,7 @@ class SearchModelController {
     func updateIndex(for file: File) {
         let request: NSFetchRequest = SearchModel.fetchRequest()
         request.predicate = NSPredicate(format: "path == %@", file.path)
-        let result = try? SearchModelController.shared.persistentContainer.viewContext.fetch(request)
+        let result = try? persistentContainer.viewContext.fetch(request)
         result?.forEach {
             guard let newContent = try? file.readAsString() else { return }
             $0.content = newContent
@@ -135,12 +135,53 @@ class SearchModelController {
     func files(containing string: String) -> [SearchModel] {
         let request: NSFetchRequest = SearchModel.fetchRequest()
         request.predicate = NSPredicate(format: "content CONTAINS[cd] %@", string)
-        let result = try? SearchModelController.shared.persistentContainer.viewContext.fetch(request)
+        let result = try? persistentContainer.viewContext.fetch(request)
 
         return result ?? []
     }
 
+    func remove(fromIndex fileSystemItem: FileSystem.Item) {
+        if let folder = fileSystemItem as? Folder {
+            remove(fromIndex: folder)
+        } else if let file = fileSystemItem as? File {
+            remove(fromIndex: file)
+        }
+    }
+
+    private func remove(fromIndex folder: Folder) {
+        folder.subfolders.forEach {
+            remove(fromIndex: $0)
+        }
+
+        folder.files.forEach {
+            remove(fromIndex: $0)
+        }
+
+        saveAction()
+    }
+
+    private func remove(fromIndex file: File) {
+        let request: NSFetchRequest = SearchModel.fetchRequest()
+        request.predicate = NSPredicate(format: "path == %@", file.path)
+        let result = try? persistentContainer.viewContext.fetch(request)
+        result?.forEach {
+            print("Removed file \($0.path!) from index")
+            persistentContainer.viewContext.delete($0)
+        }
+
+        saveAction()
+    }
+
+    func index(fileSystemItem: FileSystem.Item) {
+        if let folder = fileSystemItem as? Folder {
+            index(folder: folder)
+        } else if let file = fileSystemItem as? File {
+            index(file: file)
+        }
+    }
+
     private func index(folder: Folder) {
+        print("Index folder \(folder.name)")
         folder.subfolders.forEach {
             index(folder: $0)
         }
@@ -153,6 +194,7 @@ class SearchModelController {
     }
 
     private func index(file: File) {
+        print("Index file \(file.name)")
         let searchModel = SearchModel(context: persistentContainer.viewContext)
         searchModel.path = file.path
         searchModel.content = (try? file.readAsString()) ?? ""

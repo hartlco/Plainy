@@ -20,11 +20,11 @@ class FileSystemItemCell: NSTableCellView {
 
 extension FileSystemItemCell: NSTextFieldDelegate {
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
-        try? fileSystemItem?.item.rename(to: fileNameTextField.stringValue)
+        guard let fileSystemItem = fileSystemItem else { return true }
 
-        if let browseFolder = fileSystemItem as? BrowseFolderItem {
-            browseFolder.refreshAllItems()
-        }
+        SearchModelController.shared.remove(fromIndex: fileSystemItem.item)
+        fileSystemItem.rename(to: fileNameTextField.stringValue)
+        SearchModelController.shared.index(fileSystemItem: fileSystemItem.item)
 
         return true
     }
