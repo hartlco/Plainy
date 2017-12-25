@@ -86,6 +86,30 @@ class BrowseFolderItem: BrowseFileSystemItem {
         try? item.rename(to: newFilename)
         refreshAllItems()
     }
+
+    func itemsToExpand(at path: String, homepath: String = PreferencesManager.shared.rootPath) -> [BrowseFileSystemItem] {
+        let normalisedItemPath = path.replacingOccurrences(of: homepath, with: "")
+        let itemNames = normalisedItemPath.split(separator: "/")
+        var nextFolder: BrowseFileSystemItem = self
+        var folders = [nextFolder]
+
+        for item in itemNames {
+            if let folder = nextFolder as? BrowseFolderItem,
+            let foundItem = folder.subitem(named: String(item)) {
+                nextFolder = foundItem
+            }
+
+            folders.append(nextFolder)
+        }
+
+        return folders
+    }
+
+    func subitem(named name: String) -> BrowseFileSystemItem? {
+        return allItems.first(where: {
+            $0.item.name == name
+        })
+    }
 }
 
 class BrowseFileItem: BrowseFileSystemItem {

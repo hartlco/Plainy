@@ -70,7 +70,6 @@ class AppSplitViewController: NSSplitViewController {
         guard let path = searchFile.path,
             let file = try? File(path: path) else { return }
 
-        let fileItem = BrowseFileItem(file: file)
-        browseViewController?.didSelectFile(fileItem)
+        browseViewController?.select(at: file.path)
     }
 }

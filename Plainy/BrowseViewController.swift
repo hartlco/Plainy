@@ -38,6 +38,19 @@ class BrowseViewController: NSViewController {
         outlineView.reloadItem(file)
     }
 
+    func select(at path: String) {
+        let itemsToExpand = rootFolderItem.itemsToExpand(at: path)
+        for item in itemsToExpand {
+            if item is BrowseFolderItem {
+                outlineView.expandItem(item)
+            } else {
+                let row = outlineView.row(forItem: item)
+                outlineView.selectRowIndexes([row], byExtendingSelection: false)
+                selectFile(item: item)
+            }
+        }
+    }
+
     @objc func newFileOnSelectedFolder() {
         let item = outlineView.item(atRow: outlineView.selectedRow)
         let folderToCreateIn: BrowseFolderItem
