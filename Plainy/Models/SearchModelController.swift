@@ -134,7 +134,7 @@ class SearchModelController {
 
     func files(containing string: String) -> [SearchModel] {
         let request: NSFetchRequest = SearchModel.fetchRequest()
-        request.predicate = NSPredicate(format: "content CONTAINS[cd] %@", string)
+        request.predicate = NSPredicate(format: "(content CONTAINS[cd] %@) OR (name CONTAINS[cd] %@)", string, string)
         let result = try? persistentContainer.viewContext.fetch(request)
 
         return result ?? []
