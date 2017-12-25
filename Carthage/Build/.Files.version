@@ -11,14 +11,14 @@
   "tvOS" : [
     {
       "name" : "Files",
-      "hash" : "c41c6367a91111d651ace31d766f890ac178f6f83cf746fa99747ca3a72680aa"
+      "hash" : "726e66ac4ad77fab98d4f18a562c2c82ced8dc4faaf4a448d56658e967bcc0a3"
     }
   ],
   "commitish" : "2.0.1",
   "iOS" : [
     {
       "name" : "Files",
-      "hash" : "587f359429786ac0460b6483c710581c1b04bb7952beefb5b3bdb1d91965ec6e"
+      "hash" : "aab80803b7a15704eb9684884c3500fb81233546d0738aefb70131f10a4e86a6"
     }
   ]
 }

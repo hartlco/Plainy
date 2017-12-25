@@ -13,6 +13,7 @@
 		5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */; };
 		5B44DABF1FE6651A001066F2 /* SearchModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DABE1FE6651A001066F2 /* SearchModelController.swift */; };
 		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
+		5B59A02E1FF1B7DC001538C3 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5B59A02D1FF1B7DC001538C3 /* Cartfile */; };
 		5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; };
 		5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B68A7F01FD27127007849CE /* Files.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B68A7EF1FD27127007849CE /* Files.framework.dSYM */; };
@@ -97,6 +98,7 @@
 		5B44DA811FE66412001066F2 /* SearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchModel.xcdatamodel; sourceTree = "<group>"; };
 		5B44DABE1FE6651A001066F2 /* SearchModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelController.swift; sourceTree = "<group>"; };
 		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
+		5B59A02D1FF1B7DC001538C3 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		5B630BD71FD5E722006D34FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B68A7EA1FD270F9007849CE /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
 		5B68A7EF1FD27127007849CE /* Files.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Files.framework.dSYM; path = Carthage/Build/Mac/Files.framework.dSYM; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
+				5B59A02D1FF1B7DC001538C3 /* Cartfile */,
 				5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */,
 				5B630BD71FD5E722006D34FA /* README.md */,
 				5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */,
@@ -374,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B59A02E1FF1B7DC001538C3 /* Cartfile in Resources */,
 				5BF35E171FE843A30062E7CA /* base16-tomorrow-dark.json in Resources */,
 				5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */,
 				5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */,
