@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="zmX-7s-IHC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="ggq-4p-G2J">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="zmX-7s-IHC" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="DS0-bF-QHE">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="362" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <connections>
+                            <outlet property="delegate" destination="zmX-7s-IHC" id="Irv-v8-Dz5"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="kkS-VD-31c" kind="relationship" relationship="window.shadowedContentViewController" id="FDz-Wq-hKc"/>
+                    </connections>
+                </windowController>
+                <customObject id="8j2-DC-xct" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="-319"/>
+        </scene>
+        <!--Main Settings View Controller-->
+        <scene sceneID="XF7-G6-AoS">
+            <objects>
+                <viewController id="kkS-VD-31c" customClass="MainSettingsViewController" customModule="Plainy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="nFB-3e-a3a">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-OB-mbV">
+                                <rect key="frame" x="12" y="211" width="456" height="47"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E5G-Ml-qbV">
+                                        <rect key="frame" x="-2" y="30" width="77" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Library path" id="fKm-4e-vGS">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9lT-vA-R5d">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/martin" drawsBackground="YES" id="afc-P4-9Bx">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="applyNowButtonPressed:" target="kkS-VD-31c" id="4LT-Sd-IHN"/>
+                                            <outlet property="delegate" destination="kkS-VD-31c" id="vHi-WX-c9D"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9lT-vA-R5d" secondAttribute="trailing" id="GG4-gT-kbM"/>
+                                    <constraint firstItem="9lT-vA-R5d" firstAttribute="leading" secondItem="0bj-OB-mbV" secondAttribute="leading" id="SOm-7v-EUE"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QDm-t0-4VI">
+                                <rect key="frame" x="370" y="171" width="104" height="32"/>
+                                <buttonCell key="cell" type="push" title="Apply now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="viI-sU-ycZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="applyNowButtonPressed:" target="kkS-VD-31c" id="97p-GW-MkW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QDm-t0-4VI" secondAttribute="trailing" constant="12" id="ACM-nA-DA0"/>
+                            <constraint firstItem="0bj-OB-mbV" firstAttribute="leading" secondItem="nFB-3e-a3a" secondAttribute="leading" constant="12" id="EZv-KR-ChY"/>
+                            <constraint firstItem="QDm-t0-4VI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nFB-3e-a3a" secondAttribute="leading" constant="20" symbolic="YES" id="IUz-jN-eXG"/>
+                            <constraint firstAttribute="trailing" secondItem="0bj-OB-mbV" secondAttribute="trailing" constant="12" id="Qf7-Wb-se5"/>
+                            <constraint firstItem="0bj-OB-mbV" firstAttribute="top" secondItem="nFB-3e-a3a" secondAttribute="top" constant="12" id="VQr-dT-4CE"/>
+                            <constraint firstItem="QDm-t0-4VI" firstAttribute="top" secondItem="0bj-OB-mbV" secondAttribute="bottom" constant="12" id="nxr-m0-Xvh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pathTextField" destination="9lT-vA-R5d" id="8Zt-mM-g3O"/>
+                    </connections>
+                </viewController>
+                <customObject id="2Iz-8w-NcB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528" y="-328"/>
+        </scene>
+    </scenes>
+</document>

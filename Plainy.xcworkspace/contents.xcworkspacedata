@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/martin/Code/Plainy/Plainy/Settings.storyboard">
+   </FileRef>
+   <FileRef
       location = "container:Plainy.xcodeproj">
    </FileRef>
 </Workspace>
