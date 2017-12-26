@@ -9,6 +9,8 @@ import Files
 class FileSystemItemCell: NSTableCellView {
     static let identifier = "FileCell"
 
+    private let modelController = ModelController()
+
     @IBOutlet weak var fileNameTextField: NSTextField!
     var fileSystemItem: BrowseFileSystemItem?
     @IBOutlet weak var textPreviewTextField: NSTextField! {
@@ -22,9 +24,7 @@ extension FileSystemItemCell: NSTextFieldDelegate {
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
         guard let fileSystemItem = fileSystemItem else { return true }
 
-        SearchModelController.shared.remove(fromIndex: fileSystemItem.item)
-        fileSystemItem.rename(to: fileNameTextField.stringValue)
-        SearchModelController.shared.index(fileSystemItem: fileSystemItem.item)
+        modelController.rename(browseItem: fileSystemItem, to: fileNameTextField.stringValue)
 
         return true
     }

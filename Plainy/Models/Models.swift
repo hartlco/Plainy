@@ -20,8 +20,6 @@ class BrowseFileSystemItem: Equatable {
     func move(to folderItem: BrowseFolderItem) -> Int? {
         return nil
     }
-
-    func rename(to newFilename: String) { }
 }
 
 class BrowseFolderItem: BrowseFileSystemItem {
@@ -82,11 +80,6 @@ class BrowseFolderItem: BrowseFileSystemItem {
         }
     }
 
-    override func rename(to newFilename: String) {
-        try? item.rename(to: newFilename)
-        refreshAllItems()
-    }
-
     func itemsToExpand(at path: String, homepath: String = PreferencesManager.shared.rootPath) -> [BrowseFileSystemItem] {
         let normalisedItemPath = path.replacingOccurrences(of: homepath, with: "")
         let itemNames = normalisedItemPath.split(separator: "/")
@@ -131,9 +124,5 @@ class BrowseFileItem: BrowseFileSystemItem {
         } catch {
             return nil
         }
-    }
-
-    override func rename(to newFilename: String) {
-        try? item.rename(to: newFilename)
     }
 }
