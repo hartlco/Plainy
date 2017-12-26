@@ -70,14 +70,3 @@ extension OpenQuicklyViewController: NSTableViewDelegate, NSTableViewDataSource 
         return openCell
     }
 }
-
-class OpenQuicklyCell: NSTableCellView {
-    static let identifier = "OpenQuicklyCell"
-
-    @IBOutlet weak var fileNameLabel: NSTextField!
-    @IBOutlet weak var filePreviewLabel: NSTextField! {
-        didSet {
-            filePreviewLabel.maximumNumberOfLines = 3
-        }
-    }
-}

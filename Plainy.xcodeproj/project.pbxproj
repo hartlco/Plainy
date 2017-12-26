@@ -10,6 +10,8 @@
 		5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */; };
 		5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869591FDAFAD600BC9BDF /* Models.swift */; };
 		5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */; };
+		5B26E5B41FF226B20013B759 /* OpenQuicklyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26E5B31FF226B20013B759 /* OpenQuicklyCell.swift */; };
+		5B26E5B81FF2287B0013B759 /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B68A7EA1FD270F9007849CE /* Files.framework */; };
 		5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */; };
 		5B44DABF1FE6651A001066F2 /* SearchModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DABE1FE6651A001066F2 /* SearchModelController.swift */; };
 		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
@@ -40,7 +42,6 @@
 		C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF91FD013100096858D /* EditorViewController.swift */; };
 		C5998AFC1FD013100096858D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5998AFB1FD013100096858D /* Assets.xcassets */; };
 		C5998AFF1FD013100096858D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5998AFD1FD013100096858D /* Main.storyboard */; };
-		C5998B0B1FD013100096858D /* PlainyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998B0A1FD013100096858D /* PlainyTests.swift */; };
 		C5998B161FD013100096858D /* PlainyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998B151FD013100096858D /* PlainyUITests.swift */; };
 		C5D4C6201FD03E7C00A059F2 /* AppSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4C61F1FD03E7C00A059F2 /* AppSplitViewController.swift */; };
 		C5D4C6221FD045C600A059F2 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4C6211FD045C600A059F2 /* BrowseViewController.swift */; };
@@ -95,6 +96,7 @@
 		5B1869561FDAFA6400BC9BDF /* Files+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+Extensions.swift"; sourceTree = "<group>"; };
 		5B1869591FDAFAD600BC9BDF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		5B26E5B31FF226B20013B759 /* OpenQuicklyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyCell.swift; sourceTree = "<group>"; };
 		5B44DA811FE66412001066F2 /* SearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchModel.xcdatamodel; sourceTree = "<group>"; };
 		5B44DABE1FE6651A001066F2 /* SearchModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelController.swift; sourceTree = "<group>"; };
 		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
@@ -126,7 +128,6 @@
 		C5998B001FD013100096858D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5998B011FD013100096858D /* Plainy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plainy.entitlements; sourceTree = "<group>"; };
 		C5998B061FD013100096858D /* PlainyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5998B0A1FD013100096858D /* PlainyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainyTests.swift; sourceTree = "<group>"; };
 		C5998B0C1FD013100096858D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5998B111FD013100096858D /* PlainyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5998B151FD013100096858D /* PlainyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainyUITests.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B26E5B81FF2287B0013B759 /* Files.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,28 @@
 				5B44DABE1FE6651A001066F2 /* SearchModelController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5B26E5B21FF2268E0013B759 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */,
+				5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */,
+				5B26E5B31FF226B20013B759 /* OpenQuicklyCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B26E5B51FF226F40013B759 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5998AF91FD013100096858D /* EditorViewController.swift */,
+				C5D4C61F1FD03E7C00A059F2 /* AppSplitViewController.swift */,
+				C5D4C6211FD045C600A059F2 /* BrowseViewController.swift */,
+				5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */,
+				5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		5BF35E061FE843960062E7CA /* themes */ = {
@@ -229,22 +253,17 @@
 		C5998AF61FD013100096858D /* Plainy */ = {
 			isa = PBXGroup;
 			children = (
+				5B26E5B51FF226F40013B759 /* ViewController */,
+				5B26E5B21FF2268E0013B759 /* Views */,
 				5BF35E061FE843960062E7CA /* themes */,
 				5B1869581FDAFA8900BC9BDF /* Models */,
 				5B1869551FDAFA5400BC9BDF /* Extensions */,
 				C5998AF71FD013100096858D /* AppDelegate.swift */,
-				C5998AF91FD013100096858D /* EditorViewController.swift */,
-				C5D4C61F1FD03E7C00A059F2 /* AppSplitViewController.swift */,
-				C5D4C6211FD045C600A059F2 /* BrowseViewController.swift */,
-				5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */,
 				C5998AFB1FD013100096858D /* Assets.xcassets */,
 				C5998AFD1FD013100096858D /* Main.storyboard */,
 				5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */,
 				C5998B001FD013100096858D /* Info.plist */,
 				C5998B011FD013100096858D /* Plainy.entitlements */,
-				5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */,
-				5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */,
-				5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */,
 			);
 			path = Plainy;
 			sourceTree = "<group>";
@@ -252,7 +271,6 @@
 		C5998B091FD013100096858D /* PlainyTests */ = {
 			isa = PBXGroup;
 			children = (
-				C5998B0A1FD013100096858D /* PlainyTests.swift */,
 				C5998B0C1FD013100096858D /* Info.plist */,
 			);
 			path = PlainyTests;
@@ -443,6 +461,7 @@
 				5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */,
 				C5998AF81FD013100096858D /* AppDelegate.swift in Sources */,
 				5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */,
+				5B26E5B41FF226B20013B759 /* OpenQuicklyCell.swift in Sources */,
 				5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5998B0B1FD013100096858D /* PlainyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +667,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PlainyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.PlainyTests;
@@ -665,6 +687,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PlainyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.PlainyTests;
