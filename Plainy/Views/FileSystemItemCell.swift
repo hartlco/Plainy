@@ -6,8 +6,13 @@
 import Cocoa
 import Files
 
+protocol FileSystemItemCellDelegate: class {
+    func didRenameItem(item: BrowseFileSystemItem)
+}
+
 class FileSystemItemCell: NSTableCellView {
     static let identifier = "FileCell"
+    weak var delegate: FileSystemItemCellDelegate?
 
     private let modelController = ModelController()
 
@@ -25,6 +30,7 @@ extension FileSystemItemCell: NSTextFieldDelegate {
         guard let fileSystemItem = fileSystemItem else { return true }
 
         modelController.rename(browseItem: fileSystemItem, to: fileNameTextField.stringValue)
+        delegate?.didRenameItem(item: fileSystemItem)
 
         return true
     }

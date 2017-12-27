@@ -198,6 +198,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
             fileCell?.imageView?.image = NSWorkspace.shared.icon(forFile: fileSystemItem.item.path)
             fileCell?.textField?.stringValue = fileSystemItem.item.name
             fileCell?.fileSystemItem = fileSystemItem
+            fileCell?.delegate = self
 
             guard let file = fileSystemItem as? BrowseFileItem,
             let text = try? file.file.readAsString(),
@@ -339,5 +340,11 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         if let file = item as? BrowseFileItem {
             didSelectFile(file)
         }
+    }
+}
+
+extension BrowseViewController: FileSystemItemCellDelegate {
+    func didRenameItem(item: BrowseFileSystemItem) {
+        outlineView.reloadItem(item, reloadChildren: true)
     }
 }
