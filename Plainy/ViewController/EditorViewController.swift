@@ -27,6 +27,7 @@ class EditorViewController: NSViewController {
                 return
             }
             textView.string = data
+            insertImage(from: browseFile.item.parent!, string: data)
         }
     }
 
@@ -37,6 +38,17 @@ class EditorViewController: NSViewController {
         super.viewDidLoad()
         updateTheme()
         NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.saveOnLoosingFocus), name: NSWindow.didResignKeyNotification, object: nil)
+    }
+
+    private func insertImage(from folder: Folder, string: String) {
+        guard let pictureData = try? folder.file(named: "Hotel.jpg").read() else { return }
+        let image = NSImage(data: pictureData)
+        let attachmentCell = NSTextAttachmentCell(imageCell: image)
+        let attachment = NSTextAttachment()
+        attachment.attachmentCell = attachmentCell
+        let attributedString = NSAttributedString(attachment: attachment)
+        // WARNING - Need to implemented an overriden `append` in Notepad.Storage as it doenst append it for it's backingStore property
+        textStorage.append(attributedString)
     }
 
     deinit {
