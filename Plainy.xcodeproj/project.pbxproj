@@ -23,12 +23,10 @@
 		5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */; };
 		5B6D6CF41FF22BA500994970 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B26E5B91FF22ADB0013B759 /* Settings.storyboard */; };
 		5B6D6CF61FF2302A00994970 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D6CF51FF2302A00994970 /* ModelController.swift */; };
-		5B7449B91FD3D6E600B69A52 /* Witness.framework.dSYM in Carthage symbols */ = {isa = PBXBuildFile; fileRef = 5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */; };
-		5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; };
-		5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7449B61FD3D6DA00B69A52 /* Witness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B8490301FF3E0DE00A1F03E /* Marklight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; };
 		5B8490311FF3E0E500A1F03E /* Marklight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; };
 		5B8490321FF3E0E500A1F03E /* Marklight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BC1CDF31FF8F2FE009778D3 /* RootFilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */; };
 		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
 		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
 		5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; };
@@ -76,7 +74,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B7449BB1FD3D78800B69A52 /* Witness.framework in Embed Frameworks */,
 				5BF35E1A1FE844780062E7CA /* Notepad.framework in Embed Frameworks */,
 				5B8490321FF3E0E500A1F03E /* Marklight.framework in Embed Frameworks */,
 				5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */,
@@ -91,7 +88,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				5B68A7F01FD27127007849CE /* Files.framework.dSYM in Carthage symbols */,
-				5B7449B91FD3D6E600B69A52 /* Witness.framework.dSYM in Carthage symbols */,
 			);
 			name = "Carthage symbols";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,9 +110,8 @@
 		5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemItemCell.swift; sourceTree = "<group>"; };
 		5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
 		5B6D6CF51FF2302A00994970 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		5B7449B61FD3D6DA00B69A52 /* Witness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Witness.framework; path = Carthage/Build/Mac/Witness.framework; sourceTree = "<group>"; };
-		5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Witness.framework.dSYM; path = Carthage/Build/Mac/Witness.framework.dSYM; sourceTree = "<group>"; };
 		5B84902F1FF3E0DD00A1F03E /* Marklight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Marklight.framework; path = Carthage/Build/Mac/Marklight.framework; sourceTree = "<group>"; };
+		5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFilePresenter.swift; sourceTree = "<group>"; };
 		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
 		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
 		5BF35E011FE8434D0062E7CA /* Notepad.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Notepad.framework; path = Carthage/Build/Mac/Notepad.framework; sourceTree = "<group>"; };
@@ -151,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */,
-				5B7449BA1FD3D78800B69A52 /* Witness.framework in Frameworks */,
 				5B8490311FF3E0E500A1F03E /* Marklight.framework in Frameworks */,
 				5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */,
 				5B68A7EB1FD270F9007849CE /* Files.framework in Frameworks */,
@@ -192,6 +186,7 @@
 				5B6D6CF51FF2302A00994970 /* ModelController.swift */,
 				5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */,
 				5B44DABE1FE6651A001066F2 /* SearchModelController.swift */,
+				5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,11 +235,9 @@
 				5B59A02D1FF1B7DC001538C3 /* Cartfile */,
 				5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */,
 				5B630BD71FD5E722006D34FA /* README.md */,
-				5B7449B81FD3D6E600B69A52 /* Witness.framework.dSYM */,
 				5B68A7EF1FD27127007849CE /* Files.framework.dSYM */,
 				5B84902F1FF3E0DD00A1F03E /* Marklight.framework */,
 				5BF35E011FE8434D0062E7CA /* Notepad.framework */,
-				5B7449B61FD3D6DA00B69A52 /* Witness.framework */,
 				5B68A7EA1FD270F9007849CE /* Files.framework */,
 				C5998AF61FD013100096858D /* Plainy */,
 				C5998B091FD013100096858D /* PlainyTests */,
@@ -476,6 +469,7 @@
 				5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */,
 				5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */,
 				C5998AF81FD013100096858D /* AppDelegate.swift in Sources */,
+				5BC1CDF31FF8F2FE009778D3 /* RootFilePresenter.swift in Sources */,
 				5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */,
 				5B26E5B41FF226B20013B759 /* OpenQuicklyCell.swift in Sources */,
 				5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */,

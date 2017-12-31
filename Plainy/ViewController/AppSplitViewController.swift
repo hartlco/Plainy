@@ -11,6 +11,9 @@ class AppSplitViewController: NSSplitViewController {
     private var browseViewController: BrowseViewController?
     private var editorViewController: EditorViewController?
     private let preferencesManager: PreferencesManager = .shared
+    private let searchModelController: SearchModelController = .shared
+
+    private var rootFilePresenter: RootFilePresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,8 @@ class AppSplitViewController: NSSplitViewController {
         editorViewController = splitViewItems.last?.viewController as? EditorViewController
 
         browseViewController?.updateFiles(rootPath: preferencesManager.rootPath)
+
+        installRootFilePresenterCallbacks()
 
         installCallbacks()
     }
@@ -31,13 +36,15 @@ class AppSplitViewController: NSSplitViewController {
         preferencesManager.didChangeRootPath = { [weak self] path in
             self?.browseViewController?.updateFiles(rootPath: path)
             self?.editorViewController?.browseFile = nil
+            self?.installRootFilePresenterCallbacks()
+            self?.searchModelController.index()
         }
 
         ShortCutManager.shared.saveAction = { [weak self] in
             self?.editorViewController?.save()
             self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
             guard let savingFile = self?.editorViewController?.browseFile else { return }
-            SearchModelController.shared.updateIndex(for: savingFile.file)
+            self?.searchModelController.updateIndex(for: savingFile.file)
         }
 
         ShortCutManager.shared.newFileAction = { [weak self] in
@@ -71,5 +78,14 @@ class AppSplitViewController: NSSplitViewController {
             let file = try? File(path: path) else { return }
 
         browseViewController?.select(at: file.path)
+    }
+
+    private func installRootFilePresenterCallbacks() {
+        rootFilePresenter = RootFilePresenter(rootFolderPath: preferencesManager.rootPath)
+        rootFilePresenter?.rootFolderWasUpdated = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.browseViewController?.updateFiles(rootPath: strongSelf.preferencesManager.rootPath)
+            strongSelf.editorViewController?.browseFile = nil
+        }
     }
 }

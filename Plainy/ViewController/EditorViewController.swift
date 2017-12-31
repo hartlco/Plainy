@@ -52,7 +52,10 @@ class EditorViewController: NSViewController {
         let readString = try? browseFile.file.readAsString(),
         textView.string != readString  else { return }
 
-        try? browseFile.file.write(string: textView.string)
+        let coordinator = NSFileCoordinator(filePresenter: RootFilePresenter.sharedInstance)
+        coordinator.coordinate(writingItemAt: browseFile.file.url, options: [], error: nil) { _ in
+            try? browseFile.file.write(string: textView.string)
+        }
     }
 
     @IBOutlet private var textView: NSTextView! {

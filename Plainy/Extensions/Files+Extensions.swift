@@ -26,4 +26,8 @@ extension FileSystem.Item {
             throw OperationError.deleteFailed(self)
         }
     }
+
+    var url: URL {
+        return URL(fileURLWithPath: path)
+    }
 }

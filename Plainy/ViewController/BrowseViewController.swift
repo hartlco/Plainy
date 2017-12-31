@@ -5,7 +5,6 @@
 
 import Cocoa
 import Files
-import Witness
 
 class BrowseViewController: NSViewController {
     var didSelectFile: (BrowseFileItem?) -> Void = { _ in }
