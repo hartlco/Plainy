@@ -52,7 +52,7 @@ class BrowseFolderItem: BrowseFileSystemItem {
             item = folder
             allItems = uncachedAllItems
         } catch {
-            
+            // TODO: Show error
         }
     }
 

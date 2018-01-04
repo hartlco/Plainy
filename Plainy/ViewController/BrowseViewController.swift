@@ -12,6 +12,7 @@ class BrowseViewController: NSViewController {
     private var rootFolderItem = BrowseFolderItem(folder: Folder.home, parent: nil)
     private var didInsert = false
     private var draggedItem: BrowseFileSystemItem?
+    private var expandedItemPaths: Set<String> = []
 
     @IBOutlet private  weak var outlineView: MenuOutlineView! {
         didSet {
@@ -29,6 +30,20 @@ class BrowseViewController: NSViewController {
 
         rootFolderItem = BrowseFolderItem(folder: newRootFolder, parent: nil)
         outlineView.reloadData()
+    }
+
+    func refresh() {
+        let oldSelectedItem = outlineView.item(atRow: outlineView.selectedRow)
+
+        rootFolderItem.refreshAllItems()
+        outlineView.reloadData()
+        for path in expandedItemPaths {
+            select(at: path)
+        }
+
+        if let item = oldSelectedItem as? BrowseFileItem {
+            select(at: item.item.path)
+        }
     }
 
     func update(file: BrowseFileItem?) {
@@ -54,7 +69,7 @@ class BrowseViewController: NSViewController {
         let item = outlineView.item(atRow: outlineView.selectedRow)
         let folderToCreateIn: BrowseFolderItem
 
-        if let _ = item as? BrowseFileItem {
+        if item is BrowseFileItem {
             folderToCreateIn = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
         } else if let folder = item as? BrowseFolderItem {
             folderToCreateIn = folder
@@ -84,7 +99,7 @@ class BrowseViewController: NSViewController {
         let item = outlineView.item(atRow: outlineView.selectedRow)
         let folderToCreateIn: BrowseFolderItem
 
-        if let _ = item as? BrowseFileItem {
+        if item is BrowseFileItem {
             folderToCreateIn = (outlineView.parent(forItem: item) as? BrowseFolderItem) ?? rootFolderItem
         } else if let folder = item as? BrowseFolderItem {
             folderToCreateIn = folder
@@ -160,7 +175,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let _ = item as? BrowseFileItem {
+        if item is BrowseFileItem {
             return 0
         } else if let folder = item as? BrowseFolderItem {
             return folder.allItemsCount
@@ -180,9 +195,9 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let _ = item as? BrowseFileItem {
+        if item is BrowseFileItem {
             return false
-        } else if let _ = item as? BrowseFolderItem {
+        } else if item is BrowseFolderItem {
             return true
         }
 
@@ -345,5 +360,17 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
 extension BrowseViewController: FileSystemItemCellDelegate {
     func didRenameItem(item: BrowseFileSystemItem) {
         outlineView.reloadItem(item, reloadChildren: true)
+    }
+}
+
+extension BrowseViewController {
+    func outlineViewItemDidExpand(_ notification: Notification) {
+        guard let item = notification.userInfo?["NSObject"] as? BrowseFolderItem else { return }
+        expandedItemPaths.insert(item.item.path)
+    }
+
+    func outlineViewItemDidCollapse(_ notification: Notification) {
+        guard let item = notification.userInfo?["NSObject"] as? BrowseFolderItem else { return }
+        expandedItemPaths.remove(item.item.path)
     }
 }
