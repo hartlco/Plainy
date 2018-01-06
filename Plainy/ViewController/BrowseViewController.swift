@@ -38,7 +38,7 @@ class BrowseViewController: NSViewController {
         rootFolderItem.refreshAllItems()
         outlineView.reloadData()
         for path in expandedItemPaths {
-            select(at: path)
+            expand(at: path)
         }
 
         if let item = oldSelectedItem as? BrowseFileItem {
@@ -61,8 +61,16 @@ class BrowseViewController: NSViewController {
                 let row = outlineView.row(forItem: item)
                 outlineView.selectRowIndexes([row], byExtendingSelection: false)
                 selectFile(item: item)
+                return
             }
         }
+
+        selectFile(item: nil)
+    }
+
+    func expand(at path: String) {
+        let itemsToExpand = rootFolderItem.itemsToExpand(at: path)
+        outlineView.expandItem(itemsToExpand.last)
     }
 
     @objc func newFileOnSelectedFolder() {
@@ -346,13 +354,11 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         }
     }
 
-    private func selectFile(item: Any?) {
-        if item == nil {
-            didSelectFile(nil)
-        }
-
+    private func selectFile(item: Any?) {   
         if let file = item as? BrowseFileItem {
             didSelectFile(file)
+        } else {
+            didSelectFile(nil)
         }
     }
 }

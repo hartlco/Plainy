@@ -85,7 +85,6 @@ class AppSplitViewController: NSSplitViewController {
         rootFilePresenter = RootFilePresenter(rootFolderPath: preferencesManager.rootPath)
         rootFilePresenter?.rootFolderWasUpdated = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.editorViewController?.browseFile = nil
             strongSelf.browseViewController?.refresh()
             strongSelf.searchModelController.index()
         }

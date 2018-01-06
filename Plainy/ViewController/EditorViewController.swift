@@ -26,6 +26,8 @@ class EditorViewController: NSViewController {
                 textView.string = ""
                 return
             }
+
+            guard textView.string != data else { return }
             textView.string = data
         }
     }
