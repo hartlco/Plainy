@@ -5,7 +5,7 @@
 
 import Cocoa
 import Files
-import Marklight
+import Notepad
 
 enum EditorFont {
     case menlo
@@ -19,6 +19,12 @@ enum EditorFont {
 }
 
 class EditorViewController: NSViewController {
+    var theme = Theme("one-dark") {
+        didSet {
+            updateTheme()
+        }
+    }
+
     var browseFile: BrowseFileItem? {
         didSet {
             guard let browseFile = browseFile,
@@ -32,7 +38,7 @@ class EditorViewController: NSViewController {
         }
     }
 
-    private let textStorage = MarklightTextStorage()
+    private let storage = Storage()
     private let notificationCenter: NotificationCenter = .default
 
     override func viewDidLoad() {
@@ -76,6 +82,9 @@ extension EditorViewController: NSTextViewDelegate {
 
 extension EditorViewController {
     func updateTheme() {
-        textStorage.addLayoutManager(textView.layoutManager!)
+        storage.theme = theme
+        textView.backgroundColor = theme.backgroundColor
+        textView.insertionPointColor = theme.tintColor
+        textView.layoutManager?.replaceTextStorage(storage)
     }
 }
