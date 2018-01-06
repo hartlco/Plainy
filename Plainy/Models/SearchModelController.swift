@@ -39,11 +39,15 @@ class SearchModelController {
         return container
     }()
 
+    lazy var backgroundContext: NSManagedObjectContext = {
+        return persistentContainer.newBackgroundContext()
+    }()
+
     // MARK: - Core Data Saving and Undo support
 
     private func saveAction() {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-        let context = persistentContainer.viewContext
+        let context = backgroundContext
 
         if !context.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
@@ -61,7 +65,7 @@ class SearchModelController {
 
     func terminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
-        let context = persistentContainer.viewContext
+        let context = backgroundContext
 
         if !context.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing to terminate")
@@ -108,11 +112,11 @@ class SearchModelController {
 
         // perform the delete
         do {
-            try persistentContainer.viewContext.execute(deleteRequest)
+            try backgroundContext.execute(deleteRequest)
             let root = try Folder(path: PreferencesManager.shared.rootPath)
             index(folder: root)
             let request: NSFetchRequest = SearchModel.fetchRequest()
-            let files = try persistentContainer.viewContext.fetch(request)
+            let files = try backgroundContext.fetch(request)
             print("Indexed files: \(files.count)")
         } catch {
             print("error")
@@ -122,7 +126,7 @@ class SearchModelController {
     func updateIndex(for file: File) {
         let request: NSFetchRequest = SearchModel.fetchRequest()
         request.predicate = NSPredicate(format: "path == %@", file.path)
-        let result = try? persistentContainer.viewContext.fetch(request)
+        let result = try? backgroundContext.fetch(request)
         result?.forEach {
             guard let newContent = try? file.readAsString() else { return }
             $0.content = newContent
@@ -163,10 +167,10 @@ class SearchModelController {
     private func remove(fromIndex file: File) {
         let request: NSFetchRequest = SearchModel.fetchRequest()
         request.predicate = NSPredicate(format: "path == %@", file.path)
-        let result = try? persistentContainer.viewContext.fetch(request)
+        let result = try? backgroundContext.fetch(request)
         result?.forEach {
             print("Removed file \($0.path!) from index")
-            persistentContainer.viewContext.delete($0)
+            backgroundContext.delete($0)
         }
 
         saveAction()
@@ -195,7 +199,7 @@ class SearchModelController {
 
     private func index(file: File) {
         print("Index file \(file.name)")
-        let searchModel = SearchModel(context: persistentContainer.viewContext)
+        let searchModel = SearchModel(context: backgroundContext)
         searchModel.path = file.path
         searchModel.content = (try? file.readAsString()) ?? ""
         searchModel.name = file.name
