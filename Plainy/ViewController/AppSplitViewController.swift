@@ -32,6 +32,7 @@ class AppSplitViewController: NSSplitViewController {
         browseViewController?.didSelectFile = { [weak self] browseFile in
             self?.editorViewController?.save()
             self?.editorViewController?.browseFile = browseFile
+            self?.view.window?.title = browseFile?.item.name ?? "Plainy"
         }
 
         preferencesManager.didChangeRootPath = { [weak self] path in

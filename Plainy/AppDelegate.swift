@@ -39,6 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openQuicklyAction(_ sender: Any) {
         ShortCutManager.shared.presentOpenQuickly?()
     }
+
+    @IBAction func newTab(_ sender: Any) {
+        ShortCutManager.shared.newTab?()
+    }
 }
 
 class ShortCutManager {
@@ -49,6 +53,7 @@ class ShortCutManager {
     var newFolderAction: (() -> Void)?
     var deleteAction: (() -> Void)?
     var presentOpenQuickly: (() -> Void)?
+    var newTab:(() -> Void)?
 }
 
 class PreferencesManager {

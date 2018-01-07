@@ -41,6 +41,7 @@
 		5BF35E181FE843A30062E7CA /* solarized-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0F1FE843A30062E7CA /* solarized-light.json */; };
 		5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; };
 		5BF35E1A1FE844780062E7CA /* Notepad.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BF9B8E82001E68B0056D6A7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9B8E72001E68B0056D6A7 /* MainWindowController.swift */; };
 		C5998AF81FD013100096858D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF71FD013100096858D /* AppDelegate.swift */; };
 		C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF91FD013100096858D /* EditorViewController.swift */; };
 		C5998AFC1FD013100096858D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5998AFB1FD013100096858D /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		5BF35E0D1FE843A30062E7CA /* base16-tomorrow-light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "base16-tomorrow-light.json"; path = "themes/base16-tomorrow-light.json"; sourceTree = "<group>"; };
 		5BF35E0E1FE843A30062E7CA /* base16-tomorrow-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "base16-tomorrow-dark.json"; path = "themes/base16-tomorrow-dark.json"; sourceTree = "<group>"; };
 		5BF35E0F1FE843A30062E7CA /* solarized-light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "solarized-light.json"; path = "themes/solarized-light.json"; sourceTree = "<group>"; };
+		5BF9B8E72001E68B0056D6A7 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		C5998AF41FD013100096858D /* Plainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5998AF71FD013100096858D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5998AF91FD013100096858D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			name = themes;
 			sourceTree = "<group>";
 		};
+		5BF9B8E62001E6730056D6A7 /* WindowController */ = {
+			isa = PBXGroup;
+			children = (
+				5BF9B8E72001E68B0056D6A7 /* MainWindowController.swift */,
+			);
+			path = WindowController;
+			sourceTree = "<group>";
+		};
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +269,7 @@
 		C5998AF61FD013100096858D /* Plainy */ = {
 			isa = PBXGroup;
 			children = (
+				5BF9B8E62001E6730056D6A7 /* WindowController */,
 				5B26E5B51FF226F40013B759 /* ViewController */,
 				5B26E5B21FF2268E0013B759 /* Views */,
 				5BF35E061FE843960062E7CA /* themes */,
@@ -464,6 +475,7 @@
 				C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */,
 				5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */,
 				5B6D6CF61FF2302A00994970 /* ModelController.swift in Sources */,
+				5BF9B8E82001E68B0056D6A7 /* MainWindowController.swift in Sources */,
 				5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */,
 				C5D4C6221FD045C600A059F2 /* BrowseViewController.swift in Sources */,
 				5B1869571FDAFA6400BC9BDF /* Files+Extensions.swift in Sources */,

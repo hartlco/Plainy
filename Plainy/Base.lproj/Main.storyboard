@@ -75,6 +75,11 @@
                                                 <action selector="newFile:" target="Voe-Tx-rLC" id="zgQ-Vg-kg4"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="New Tab" keyEquivalent="t" id="vYE-rm-RUS" userLabel="New Tab">
+                                            <connections>
+                                                <action selector="newTab:" target="Voe-Tx-rLC" id="N0a-8e-Zph"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="New Folder" keyEquivalent="N" id="ALV-EM-P4R">
                                             <connections>
                                                 <action selector="newFolder:" target="Voe-Tx-rLC" id="WqP-zY-nS5"/>
@@ -667,7 +672,7 @@ CA
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Plainy" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Plainy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
