@@ -748,7 +748,7 @@ CA
                         <splitViewItem id="qTf-Pf-Nw2"/>
                         <splitViewItem id="8be-bH-agC"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="XQ0-pf-j2c">
+                    <splitView key="splitView" wantsLayer="YES" dividerStyle="thin" vertical="YES" id="XQ0-pf-j2c">
                         <rect key="frame" x="-32" y="0.0" width="482" height="336"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>

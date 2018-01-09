@@ -29,6 +29,7 @@
 		5BC1CDF31FF8F2FE009778D3 /* RootFilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */; };
 		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
 		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
+		5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC899732004F13500EA247A /* QuartzCore.framework */; };
 		5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF35E011FE8434D0062E7CA /* Notepad.framework */; };
 		5BF35E101FE843A30062E7CA /* blues-clues.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E071FE843A20062E7CA /* blues-clues.json */; };
 		5BF35E111FE843A30062E7CA /* solarized-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E081FE843A30062E7CA /* solarized-dark.json */; };
@@ -115,6 +116,7 @@
 		5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFilePresenter.swift; sourceTree = "<group>"; };
 		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
 		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
+		5BC899732004F13500EA247A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5BF35E011FE8434D0062E7CA /* Notepad.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Notepad.framework; path = Carthage/Build/Mac/Notepad.framework; sourceTree = "<group>"; };
 		5BF35E071FE843A20062E7CA /* blues-clues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "blues-clues.json"; path = "themes/blues-clues.json"; sourceTree = "<group>"; };
 		5BF35E081FE843A30062E7CA /* solarized-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "solarized-dark.json"; path = "themes/solarized-dark.json"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */,
 				5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */,
 				5B8490311FF3E0E500A1F03E /* Marklight.framework in Frameworks */,
 				5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */,
@@ -215,6 +218,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		5BC899722004F13400EA247A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BC899732004F13500EA247A /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5BF35E061FE843960062E7CA /* themes */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +264,7 @@
 				C5998B091FD013100096858D /* PlainyTests */,
 				C5998B141FD013100096858D /* PlainyUITests */,
 				C5998AF51FD013100096858D /* Products */,
+				5BC899722004F13400EA247A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
