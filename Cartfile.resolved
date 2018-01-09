@@ -1,4 +1,3 @@
 github "JohnSundell/Files" "2.0.1"
-github "hartlco/Notepad" "0eed1783736cbbcd7933f14e0db3c6579cfc9229"
+github "hartlco/Notepad" "02d7d05f56c19f9d1e632c7a1750c227ea5fb0a8"
 github "macteo/Marklight" "v1.3.0"
-github "njdehoog/Witness" "0.1.3"

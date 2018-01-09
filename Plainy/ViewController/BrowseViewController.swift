@@ -354,7 +354,7 @@ extension BrowseViewController: NSOutlineViewDataSource, MenuOutlineViewDelegate
         }
     }
 
-    private func selectFile(item: Any?) {   
+    private func selectFile(item: Any?) { 
         if let file = item as? BrowseFileItem {
             didSelectFile(file)
         } else {
