@@ -5,6 +5,9 @@
       location = "group:/Users/martin/Code/Plainy/Plainy/Settings.storyboard">
    </FileRef>
    <FileRef
+      location = "group:extern/Fragaria/Fragaria.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:Plainy.xcodeproj">
    </FileRef>
 </Workspace>

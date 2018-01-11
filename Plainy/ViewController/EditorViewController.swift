@@ -5,7 +5,7 @@
 
 import Cocoa
 import Files
-import Notepad
+import Fragaria
 
 enum EditorFont {
     case menlo
@@ -19,31 +19,23 @@ enum EditorFont {
 }
 
 class EditorViewController: NSViewController {
-    var theme = Theme("one-dark") {
-        didSet {
-            updateTheme()
-        }
-    }
-
     var browseFile: BrowseFileItem? {
         didSet {
             guard let browseFile = browseFile,
                 let data = try? browseFile.file.readAsString() else {
-                textView.string = ""
+                codeView.string = ""
                 return
             }
 
-            guard textView.string != data else { return }
-            textView.string = data
+            guard codeView.string as String != data else { return }
+            codeView.string = data as NSString
         }
     }
 
-    private let storage = Storage()
     private let notificationCenter: NotificationCenter = .default
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTheme()
         NotificationCenter.default.addObserver(self, selector: #selector(EditorViewController.saveOnLoosingFocus), name: NSWindow.didResignKeyNotification, object: nil)
     }
 
@@ -58,18 +50,17 @@ class EditorViewController: NSViewController {
     func save() {
         guard let browseFile = browseFile,
         let readString = try? browseFile.file.readAsString(),
-        textView.string != readString  else { return }
+        codeView.string as String != readString  else { return }
 
         let coordinator = NSFileCoordinator(filePresenter: RootFilePresenter.sharedInstance)
         coordinator.coordinate(writingItemAt: browseFile.file.url, options: [], error: nil) { _ in
-            try? browseFile.file.write(string: textView.string)
+            try? browseFile.file.write(string: codeView.string as String)
         }
     }
 
-    @IBOutlet private var textView: NSTextView! {
+    @IBOutlet private var codeView: MGSFragariaView! {
         didSet {
-            textView.delegate = self
-            textView.font = EditorFont.menlo.font(with: 14)
+            codeView.syntaxDefinitionName = "Markdown"
         }
     }
 }
@@ -77,14 +68,5 @@ class EditorViewController: NSViewController {
 extension EditorViewController: NSTextViewDelegate {
     func textDidEndEditing(_ notification: Notification) {
         ShortCutManager.shared.saveAction!()
-    }
-}
-
-extension EditorViewController {
-    func updateTheme() {
-        storage.theme = theme
-        textView.backgroundColor = theme.backgroundColor
-        textView.insertionPointColor = theme.tintColor
-        textView.layoutManager?.replaceTextStorage(storage)
     }
 }

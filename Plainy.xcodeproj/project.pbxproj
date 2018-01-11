@@ -26,6 +26,8 @@
 		5B8490301FF3E0DE00A1F03E /* Marklight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; };
 		5B8490311FF3E0E500A1F03E /* Marklight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; };
 		5B8490321FF3E0E500A1F03E /* Marklight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B84902F1FF3E0DD00A1F03E /* Marklight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B9E4F4D2007F6C900450CB0 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */; };
+		5B9E4F4E2007F6C900450CB0 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BC1CDF31FF8F2FE009778D3 /* RootFilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */; };
 		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
 		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
@@ -79,6 +81,7 @@
 				5BF35E1A1FE844780062E7CA /* Notepad.framework in Embed Frameworks */,
 				5B8490321FF3E0E500A1F03E /* Marklight.framework in Embed Frameworks */,
 				5B68A7EC1FD270F9007849CE /* Files.framework in Embed Frameworks */,
+				5B9E4F4E2007F6C900450CB0 /* Fragaria.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +116,7 @@
 		5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
 		5B6D6CF51FF2302A00994970 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		5B84902F1FF3E0DD00A1F03E /* Marklight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Marklight.framework; path = Carthage/Build/Mac/Marklight.framework; sourceTree = "<group>"; };
+		5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fragaria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFilePresenter.swift; sourceTree = "<group>"; };
 		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
 		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */,
+				5B9E4F4D2007F6C900450CB0 /* Fragaria.framework in Frameworks */,
 				5BF35E191FE844780062E7CA /* Notepad.framework in Frameworks */,
 				5B8490311FF3E0E500A1F03E /* Marklight.framework in Frameworks */,
 				5BF35E021FE8434D0062E7CA /* Notepad.framework in Frameworks */,
@@ -253,6 +258,7 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
+				5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */,
 				5B59A02D1FF1B7DC001538C3 /* Cartfile */,
 				5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */,
 				5B630BD71FD5E722006D34FA /* README.md */,
