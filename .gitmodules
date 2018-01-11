@@ -1,0 +1,3 @@
+[submodule "extern/Fragaria"]
+	path = extern/Fragaria
+	url = git@github.com:hartlco/Fragaria.git
