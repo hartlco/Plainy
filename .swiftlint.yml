@@ -2,4 +2,5 @@ disabled_rules:
 - line_length
 
 excluded:
+- extern
 - Carthage
