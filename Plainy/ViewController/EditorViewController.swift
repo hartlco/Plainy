@@ -60,6 +60,7 @@ class EditorViewController: NSViewController {
 
     @IBOutlet private var codeView: MGSFragariaView! {
         didSet {
+            codeView.textFont = NSFont(name: "Menlo", size: 16)!
             codeView.syntaxDefinitionName = "Markdown"
         }
     }
