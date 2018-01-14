@@ -9,7 +9,12 @@ import Files
 class BrowseViewController: NSViewController {
     var didSelectFile: (BrowseFileItem?) -> Void = { _ in }
 
-    private var rootFolderItem = BrowseFolderItem(folder: Folder.home, parent: nil)
+    lazy private var rootFolderItem: BrowseFolderItem = {
+        guard let folder = try? Folder(path: PreferencesManager.shared.rootPath) else {
+            fatalError()
+        }
+        return BrowseFolderItem(folder: folder, parent: nil)
+    }()
     private var didInsert = false
     private var draggedItem: BrowseFileSystemItem?
     private var expandedItemPaths: Set<String> = []
