@@ -11,29 +11,27 @@
 		5B18695A1FDAFAD600BC9BDF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1869591FDAFAD600BC9BDF /* Models.swift */; };
 		5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */; };
 		5B26E5B41FF226B20013B759 /* OpenQuicklyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26E5B31FF226B20013B759 /* OpenQuicklyCell.swift */; };
+		5B442908200B935C0053DE33 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B442907200B935C0053DE33 /* libicucore.tbd */; };
+		5B44290A200B958C0053DE33 /* Modules in Resources */ = {isa = PBXBuildFile; fileRef = 5B442909200B958C0053DE33 /* Modules */; };
+		5B442910200BB7580053DE33 /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6A96052009DF280031452C /* Files.framework */; };
+		5B442911200BB7580053DE33 /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6A96052009DF280031452C /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */; };
 		5B44DABF1FE6651A001066F2 /* SearchModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DABE1FE6651A001066F2 /* SearchModelController.swift */; };
 		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
 		5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */; };
 		5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */; };
-		5B6A96042009DF280031452C /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6A96052009DF280031452C /* Files.framework */; };
 		5B6A96082009E0130031452C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A96072009E0130031452C /* Settings.storyboard */; };
 		5B6D6CF61FF2302A00994970 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D6CF51FF2302A00994970 /* ModelController.swift */; };
-		5B9E4F4D2007F6C900450CB0 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */; };
-		5B9E4F4E2007F6C900450CB0 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BB324722034B7BE00DCA82F /* CodeTextEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */; };
+		5BB324732034B7BE00DCA82F /* CodeTextEditor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BB324762034B81700DCA82F /* ColorCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324742034B81600DCA82F /* ColorCode.framework */; };
+		5BB324772034B81700DCA82F /* ColorCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324742034B81600DCA82F /* ColorCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BB324782034B81700DCA82F /* YAML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324752034B81600DCA82F /* YAML.framework */; };
+		5BB324792034B81700DCA82F /* YAML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324752034B81600DCA82F /* YAML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BC1CDF31FF8F2FE009778D3 /* RootFilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */; };
 		5BC4C7AA1FE6442000252052 /* OpenQuicklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */; };
 		5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4C7AB1FE6466100252052 /* OpenQuickly.storyboard */; };
 		5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC899732004F13500EA247A /* QuartzCore.framework */; };
-		5BF35E101FE843A30062E7CA /* blues-clues.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E071FE843A20062E7CA /* blues-clues.json */; };
-		5BF35E111FE843A30062E7CA /* solarized-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E081FE843A30062E7CA /* solarized-dark.json */; };
-		5BF35E121FE843A30062E7CA /* one-light-custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E091FE843A30062E7CA /* one-light-custom.json */; };
-		5BF35E131FE843A30062E7CA /* one-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0A1FE843A30062E7CA /* one-dark.json */; };
-		5BF35E141FE843A30062E7CA /* one-dark-custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0B1FE843A30062E7CA /* one-dark-custom.json */; };
-		5BF35E151FE843A30062E7CA /* one-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0C1FE843A30062E7CA /* one-light.json */; };
-		5BF35E161FE843A30062E7CA /* base16-tomorrow-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0D1FE843A30062E7CA /* base16-tomorrow-light.json */; };
-		5BF35E171FE843A30062E7CA /* base16-tomorrow-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0E1FE843A30062E7CA /* base16-tomorrow-dark.json */; };
-		5BF35E181FE843A30062E7CA /* solarized-light.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF35E0F1FE843A30062E7CA /* solarized-light.json */; };
 		5BF9B8E82001E68B0056D6A7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9B8E72001E68B0056D6A7 /* MainWindowController.swift */; };
 		C5998AF81FD013100096858D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF71FD013100096858D /* AppDelegate.swift */; };
 		C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5998AF91FD013100096858D /* EditorViewController.swift */; };
@@ -68,7 +66,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B9E4F4E2007F6C900450CB0 /* Fragaria.framework in Embed Frameworks */,
+				5B442911200BB7580053DE33 /* Files.framework in Embed Frameworks */,
+				5BB324792034B81700DCA82F /* YAML.framework in Embed Frameworks */,
+				5BB324772034B81700DCA82F /* ColorCode.framework in Embed Frameworks */,
+				5BB324732034B7BE00DCA82F /* CodeTextEditor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +91,9 @@
 		5B1869591FDAFAD600BC9BDF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5B26E5B31FF226B20013B759 /* OpenQuicklyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyCell.swift; sourceTree = "<group>"; };
+		5B442905200B93100053DE33 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		5B442907200B935C0053DE33 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		5B442909200B958C0053DE33 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Modules; sourceTree = "<group>"; };
 		5B44DA811FE66412001066F2 /* SearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchModel.xcdatamodel; sourceTree = "<group>"; };
 		5B44DABE1FE6651A001066F2 /* SearchModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelController.swift; sourceTree = "<group>"; };
 		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
@@ -99,7 +103,9 @@
 		5B6A96052009DF280031452C /* Files.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Files.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6A96072009E0130031452C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		5B6D6CF51FF2302A00994970 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fragaria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CodeTextEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BB324742034B81600DCA82F /* ColorCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorCode.framework; path = extern/CodeTextEditor/Carthage/Build/Mac/ColorCode.framework; sourceTree = "<group>"; };
+		5BB324752034B81600DCA82F /* YAML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAML.framework; path = extern/CodeTextEditor/Carthage/Build/Mac/YAML.framework; sourceTree = "<group>"; };
 		5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFilePresenter.swift; sourceTree = "<group>"; };
 		5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenQuicklyViewController.swift; sourceTree = "<group>"; };
 		5BC4C7AC1FE6466100252052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plainy/Base.lproj/OpenQuickly.storyboard; sourceTree = "<group>"; };
@@ -135,9 +141,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6A96042009DF280031452C /* Files.framework in Frameworks */,
+				5BB324762034B81700DCA82F /* ColorCode.framework in Frameworks */,
+				5BB324782034B81700DCA82F /* YAML.framework in Frameworks */,
+				5B442908200B935C0053DE33 /* libicucore.tbd in Frameworks */,
+				5B442910200BB7580053DE33 /* Files.framework in Frameworks */,
 				5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */,
-				5B9E4F4D2007F6C900450CB0 /* Fragaria.framework in Frameworks */,
+				5BB324722034B7BE00DCA82F /* CodeTextEditor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +212,8 @@
 		5BC899722004F13400EA247A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B442907200B935C0053DE33 /* libicucore.tbd */,
+				5B442905200B93100053DE33 /* libcommonCrypto.tbd */,
 				5B6A96052009DF280031452C /* Files.framework */,
 				5BC899732004F13500EA247A /* QuartzCore.framework */,
 			);
@@ -236,7 +247,9 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
-				5B9E4F4C2007F6C900450CB0 /* Fragaria.framework */,
+				5BB324742034B81600DCA82F /* ColorCode.framework */,
+				5BB324752034B81600DCA82F /* YAML.framework */,
+				5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */,
 				5B1A61511FDF20E400B53FD2 /* .swiftlint.yml */,
 				5B630BD71FD5E722006D34FA /* README.md */,
 				C5998AF61FD013100096858D /* Plainy */,
@@ -260,6 +273,7 @@
 		C5998AF61FD013100096858D /* Plainy */ = {
 			isa = PBXGroup;
 			children = (
+				5B442909200B958C0053DE33 /* Modules */,
 				5BF9B8E62001E6730056D6A7 /* WindowController */,
 				5B26E5B51FF226F40013B759 /* ViewController */,
 				5B26E5B21FF2268E0013B759 /* Views */,
@@ -404,19 +418,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF35E171FE843A30062E7CA /* base16-tomorrow-dark.json in Resources */,
 				5B1A61521FDF20E400B53FD2 /* .swiftlint.yml in Resources */,
 				5BC4C7AD1FE6466100252052 /* OpenQuickly.storyboard in Resources */,
 				C5998AFC1FD013100096858D /* Assets.xcassets in Resources */,
-				5BF35E141FE843A30062E7CA /* one-dark-custom.json in Resources */,
-				5BF35E181FE843A30062E7CA /* solarized-light.json in Resources */,
+				5B44290A200B958C0053DE33 /* Modules in Resources */,
 				C5998AFF1FD013100096858D /* Main.storyboard in Resources */,
-				5BF35E121FE843A30062E7CA /* one-light-custom.json in Resources */,
-				5BF35E101FE843A30062E7CA /* blues-clues.json in Resources */,
-				5BF35E151FE843A30062E7CA /* one-light.json in Resources */,
-				5BF35E131FE843A30062E7CA /* one-dark.json in Resources */,
-				5BF35E111FE843A30062E7CA /* solarized-dark.json in Resources */,
-				5BF35E161FE843A30062E7CA /* base16-tomorrow-light.json in Resources */,
 				5B6A96082009E0130031452C /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,11 +650,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/extern/CodeTextEditor/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Plainy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.Plainy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Plainy/Modules/**";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -663,11 +676,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/extern/CodeTextEditor/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Plainy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.Plainy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Plainy/Modules/**";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
