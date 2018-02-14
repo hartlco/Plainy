@@ -5,10 +5,10 @@
       location = "group:/Users/martin/Code/Plainy/Plainy/Settings.storyboard">
    </FileRef>
    <FileRef
-      location = "group:extern/Files/Files.xcodeproj">
+      location = "group:extern/CodeTextEditor/CodeTextEditor/CodeTextEditor.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:extern/Fragaria/Fragaria.xcodeproj">
+      location = "group:extern/Files/Files.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:Plainy.xcodeproj">

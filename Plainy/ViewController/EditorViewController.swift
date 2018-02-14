@@ -5,7 +5,7 @@
 
 import Cocoa
 import Files
-import Fragaria
+import CodeTextEditor
 
 enum EditorFont {
     case menlo
@@ -28,7 +28,8 @@ class EditorViewController: NSViewController {
             }
 
             guard codeView.string as String != data else { return }
-            codeView.string = data as NSString
+            editorView.applySyntax(for: browseFile.item.name)
+            codeView.string = data
         }
     }
 
@@ -58,11 +59,17 @@ class EditorViewController: NSViewController {
         }
     }
 
-    @IBOutlet private var codeView: MGSFragariaView! {
-        didSet {
-            codeView.textFont = NSFont(name: "Menlo", size: 16)!
-            codeView.syntaxDefinitionName = "Markdown"
+    @IBOutlet weak var container: NSView!
+
+    private var codeView: EditorTextView! {
+        return editorView.textView!
+    }
+
+    private var editorView: CodeTextEditor.EditorViewController {
+        guard let editorViewController = childViewControllers.first as? CodeTextEditor.EditorViewController else {
+            fatalError()
         }
+        return editorViewController
     }
 }
 

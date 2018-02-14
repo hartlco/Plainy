@@ -1,6 +1,6 @@
-[submodule "extern/Fragaria"]
-	path = extern/Fragaria
-	url = git@github.com:hartlco/Fragaria.git
 [submodule "extern/Files"]
 	path = extern/Files
 	url = git@github.com:hartlco/Files.git
+[submodule "extern/CodeTextEditor"]
+	path = extern/CodeTextEditor
+	url = git@github.com:hartlco/CodeTextEditor.git
