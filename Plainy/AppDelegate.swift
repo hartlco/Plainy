@@ -21,33 +21,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Shortcuts
 
     @IBAction func newFile(_ sender: Any) {
-        ShortCutManager.shared.newFileAction?()
+        keyWindowController.shortCutManager.newFileAction?()
     }
 
     @IBAction func newFolder(_ sender: Any) {
-        ShortCutManager.shared.newFolderAction?()
+        keyWindowController.shortCutManager.newFolderAction?()
     }
 
     @IBAction func save(_ sender: Any) {
-        ShortCutManager.shared.saveAction?()
+        keyWindowController.shortCutManager.saveAction?()
     }
 
     @IBAction func deleteAction(_ sender: Any) {
-        ShortCutManager.shared.deleteAction?()
+        keyWindowController.shortCutManager.deleteAction?()
     }
 
     @IBAction func openQuicklyAction(_ sender: Any) {
-        ShortCutManager.shared.presentOpenQuickly?()
+        keyWindowController.shortCutManager.presentOpenQuickly?()
     }
 
     @IBAction func newTab(_ sender: Any) {
-        ShortCutManager.shared.newTab?()
+        keyWindowController.shortCutManager.newTab?()
+    }
+
+    private var keyWindowController: MainWindowController {
+        guard let controller = NSApplication.shared.keyWindow?.windowController as? MainWindowController else {
+            fatalError("WindowController is now MainWindowController")
+        }
+
+        return controller
     }
 }
 
 class ShortCutManager {
-    static let shared = ShortCutManager()
-
     var saveAction: (() -> Void)?
     var newFileAction: (() -> Void)?
     var newFolderAction: (() -> Void)?

@@ -19,6 +19,8 @@ enum EditorFont {
 }
 
 class EditorViewController: NSViewController {
+    var shortCutManager: ShortCutManager?
+
     var browseFile: BrowseFileItem? {
         didSet {
             guard let browseFile = browseFile,
@@ -45,7 +47,7 @@ class EditorViewController: NSViewController {
     }
 
     @objc private func saveOnLoosingFocus() {
-        ShortCutManager.shared.saveAction!()
+        shortCutManager?.saveAction!()
     }
 
     func save() {
@@ -75,6 +77,6 @@ class EditorViewController: NSViewController {
 
 extension EditorViewController: NSTextViewDelegate {
     func textDidEndEditing(_ notification: Notification) {
-        ShortCutManager.shared.saveAction!()
+        shortCutManager?.saveAction!()
     }
 }

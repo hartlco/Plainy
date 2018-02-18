@@ -7,12 +7,19 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     var subview: MainWindowController?
+    let shortCutManager = ShortCutManager()
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        ShortCutManager.shared.newTab = { [weak self] in
+        shortCutManager.newTab = { [weak self] in
             self?.newWindowForTab(self)
         }
+
+        guard let splitViewController = window?.contentViewController as? AppSplitViewController else {
+            fatalError("Root content viewcontroller is no splitviewcontroller")
+        }
+
+        splitViewController.shortCutManager = shortCutManager
     }
 
     @IBAction override func newWindowForTab(_ sender: Any?) {

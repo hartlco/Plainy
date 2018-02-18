@@ -8,6 +8,12 @@ import Cocoa
 import Files
 
 class AppSplitViewController: NSSplitViewController {
+    var shortCutManager: ShortCutManager? {
+        didSet {
+            installCallbacks()
+        }
+    }
+
     private var browseViewController: BrowseViewController?
     private var editorViewController: EditorViewController?
     private let preferencesManager: PreferencesManager = .shared
@@ -29,6 +35,8 @@ class AppSplitViewController: NSSplitViewController {
     }
 
     private func installCallbacks() {
+        editorViewController?.shortCutManager = shortCutManager
+
         browseViewController?.didSelectFile = { [weak self] browseFile in
             self?.editorViewController?.save()
             self?.editorViewController?.browseFile = browseFile
@@ -42,26 +50,26 @@ class AppSplitViewController: NSSplitViewController {
             self?.searchModelController.index()
         }
 
-        ShortCutManager.shared.saveAction = { [weak self] in
+        shortCutManager?.saveAction = { [weak self] in
             self?.editorViewController?.save()
             self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
             guard let savingFile = self?.editorViewController?.browseFile else { return }
             self?.searchModelController.updateIndex(for: savingFile.file)
         }
 
-        ShortCutManager.shared.newFileAction = { [weak self] in
+        shortCutManager?.newFileAction = { [weak self] in
             self?.browseViewController?.newFileOnSelectedFolder()
         }
 
-        ShortCutManager.shared.newFolderAction = { [weak self] in
+        shortCutManager?.newFolderAction = { [weak self] in
             self?.browseViewController?.newFolderOnSelectedFolder()
         }
 
-        ShortCutManager.shared.deleteAction = { [weak self] in
+        shortCutManager?.deleteAction = { [weak self] in
             self?.browseViewController?.deleteSelectedFileSystemidem()
         }
 
-        ShortCutManager.shared.presentOpenQuickly = { [weak self] in
+        shortCutManager?.presentOpenQuickly = { [weak self] in
             self?.showOpenQuickly()
         }
     }
