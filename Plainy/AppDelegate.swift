@@ -86,4 +86,12 @@ class PreferencesManager {
             }
         }
     }
+
+    func resetedRootFolder() -> Folder {
+        guard let folder = (try? Folder.home.createSubfolder(named: defaultFolderName)) ?? (try? Folder.home.subfolder(named: defaultFolderName)) else {
+            fatalError("Default root folder could not be created")
+        }
+        rootPath = folder.path
+        return folder
+    }
 }

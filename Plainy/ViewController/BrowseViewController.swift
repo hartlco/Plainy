@@ -11,7 +11,7 @@ class BrowseViewController: NSViewController {
 
     lazy private var rootFolderItem: BrowseFolderItem = {
         guard let folder = try? Folder(path: PreferencesManager.shared.rootPath) else {
-            fatalError()
+            return BrowseFolderItem(folder: PreferencesManager.shared.resetedRootFolder(), parent: nil)
         }
         return BrowseFolderItem(folder: folder, parent: nil)
     }()
