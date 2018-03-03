@@ -30,19 +30,14 @@ class RootFilePresenter: NSObject, NSFilePresenter {
     }
 
     @objc func presentedSubitemDidAppear(at url: URL) {
-        print("did appear")
+        rootFolderWasUpdated()
     }
 
     @objc func presentedSubitemDidChange(at url: URL) {
-        print("did update")
-        // Todo: Stupid hack to only update whole ui for changes that were made while app was not in focus
-        // This callbacks need to get way more detailed and the App needs to be able to refresh it's state without closing all folders etc.
-        if !NSRunningApplication.current.isActive {
-            rootFolderWasUpdated()
-        }
+        rootFolderWasUpdated()
     }
 
     func presentedSubitem(at oldURL: URL, didMoveTo newURL: URL) {
-        print("did move to \(newURL)")
+        rootFolderWasUpdated()
     }
 }

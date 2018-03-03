@@ -7,17 +7,6 @@ import Cocoa
 import Files
 import CodeTextEditor
 
-enum EditorFont {
-    case menlo
-
-    func font(with size: CGFloat) -> NSFont {
-        switch self {
-        case .menlo:
-            return NSFont(name: "Menlo", size: size)!
-        }
-    }
-}
-
 class EditorViewController: NSViewController {
     var shortCutManager: ShortCutManager?
 
