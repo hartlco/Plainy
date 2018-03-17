@@ -44,6 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         keyWindowController.shortCutManager.newTab?()
     }
 
+    @IBAction func focusFilebrowser(_ sender: Any) {
+        keyWindowController.shortCutManager.focusFileBrowser?()
+    }
+    
     private var keyWindowController: MainWindowController {
         guard let controller = NSApplication.shared.keyWindow?.windowController as? MainWindowController else {
             fatalError("WindowController is now MainWindowController")
@@ -60,6 +64,7 @@ class ShortCutManager {
     var deleteAction: (() -> Void)?
     var presentOpenQuickly: (() -> Void)?
     var newTab:(() -> Void)?
+    var focusFileBrowser: (() -> Void)?
 }
 
 class PreferencesManager {

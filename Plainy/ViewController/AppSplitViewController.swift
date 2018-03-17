@@ -72,6 +72,13 @@ class AppSplitViewController: NSSplitViewController {
         shortCutManager?.presentOpenQuickly = { [weak self] in
             self?.showOpenQuickly()
         }
+
+        shortCutManager?.focusFileBrowser = { [weak self] in
+            guard let weakSelf = self, let browse = weakSelf.browseViewController, let editor = weakSelf.editorViewController else { return }
+
+            let newResponder = weakSelf.view.window?.firstResponder == browse.outlineView ? editor.codeView : browse.outlineView
+            weakSelf.view.window?.makeFirstResponder(newResponder)
+        }
     }
 
     private func showOpenQuickly() {

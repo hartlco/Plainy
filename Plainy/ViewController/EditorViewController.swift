@@ -52,7 +52,7 @@ class EditorViewController: NSViewController {
 
     @IBOutlet weak var container: NSView!
 
-    private var codeView: EditorTextView! {
+    var codeView: EditorTextView! {
         return editorView.textView!
     }
 

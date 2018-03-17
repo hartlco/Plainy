@@ -626,6 +626,22 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Navigate" id="SXf-XZ-HVG" userLabel="Navigate">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Navigate" id="ckk-7d-52n">
+                                    <items>
+                                        <menuItem title="Toggle Focus" id="j2K-pQ-ZW7">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CQ
+</string>
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="focusFilebrowser:" target="Voe-Tx-rLC" id="bjs-ir-YtZ"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">

@@ -19,7 +19,7 @@ class BrowseViewController: NSViewController {
     private var draggedItem: BrowseFileSystemItem?
     private var expandedItemPaths: Set<String> = []
 
-    @IBOutlet private  weak var outlineView: MenuOutlineView! {
+    @IBOutlet private(set)  weak var outlineView: MenuOutlineView! {
         didSet {
             outlineView.delegate = self
             outlineView.dataSource = self
