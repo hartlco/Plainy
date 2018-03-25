@@ -7,7 +7,7 @@ import Cocoa
 
 class RootFilePresenter: NSObject, NSFilePresenter {
     static let sharedInstance = RootFilePresenter(rootFolderPath: PreferencesManager.shared.rootPath)
-    var rootFolderWasUpdated: () -> Void = { }
+    var rootFolderWasUpdated: (URL) -> Void = { _ in }
 
     var presentedItemURL: URL? {
         return URL(fileURLWithPath: rootFolderPath)
@@ -30,14 +30,14 @@ class RootFilePresenter: NSObject, NSFilePresenter {
     }
 
     @objc func presentedSubitemDidAppear(at url: URL) {
-        rootFolderWasUpdated()
+        rootFolderWasUpdated(url)
     }
 
     @objc func presentedSubitemDidChange(at url: URL) {
-        rootFolderWasUpdated()
+
     }
 
     func presentedSubitem(at oldURL: URL, didMoveTo newURL: URL) {
-        rootFolderWasUpdated()
+        
     }
 }

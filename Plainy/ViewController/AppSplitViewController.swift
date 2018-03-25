@@ -53,8 +53,6 @@ class AppSplitViewController: NSSplitViewController {
         shortCutManager?.saveAction = { [weak self] in
             self?.editorViewController?.save()
             self?.browseViewController?.update(file: self?.editorViewController?.browseFile)
-            guard let savingFile = self?.editorViewController?.browseFile else { return }
-            self?.searchModelController.updateIndex(for: savingFile.file)
         }
 
         shortCutManager?.newFileAction = { [weak self] in
@@ -99,8 +97,9 @@ class AppSplitViewController: NSSplitViewController {
 
     private func installRootFilePresenterCallbacks() {
         rootFilePresenter = RootFilePresenter(rootFolderPath: preferencesManager.rootPath)
-        rootFilePresenter?.rootFolderWasUpdated = { [weak self] in
-            guard let strongSelf = self else { return }
+        rootFilePresenter?.rootFolderWasUpdated = { [weak self] url in
+            guard let strongSelf = self,
+            strongSelf.editorViewController?.browseFile?.item.url != url else { return }
             strongSelf.browseViewController?.refresh()
             strongSelf.searchModelController.index()
         }

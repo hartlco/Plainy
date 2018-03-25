@@ -10,6 +10,8 @@ import CodeTextEditor
 class EditorViewController: NSViewController {
     var shortCutManager: ShortCutManager?
 
+    private let fileSaveController = FileSaveController.shared
+
     var browseFile: BrowseFileItem? {
         didSet {
             guard let browseFile = browseFile,
@@ -40,14 +42,8 @@ class EditorViewController: NSViewController {
     }
 
     func save() {
-        guard let browseFile = browseFile,
-        let readString = try? browseFile.file.readAsString(),
-        codeView.string as String != readString  else { return }
-
-        let coordinator = NSFileCoordinator(filePresenter: RootFilePresenter.sharedInstance)
-        coordinator.coordinate(writingItemAt: browseFile.file.url, options: [], error: nil) { _ in
-            try? browseFile.file.write(string: codeView.string as String)
-        }
+        guard let browseFileItem = browseFile else { return }
+        fileSaveController.save(input: codeView.string, to: browseFileItem)
     }
 
     @IBOutlet weak var container: NSView!

@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func focusFilebrowser(_ sender: Any) {
         keyWindowController.shortCutManager.focusFileBrowser?()
     }
-    
+
     private var keyWindowController: MainWindowController {
         guard let controller = NSApplication.shared.keyWindow?.windowController as? MainWindowController else {
             fatalError("WindowController is now MainWindowController")

@@ -18,10 +18,15 @@
 		5B44DA821FE66412001066F2 /* SearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */; };
 		5B44DABF1FE6651A001066F2 /* SearchModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DABE1FE6651A001066F2 /* SearchModelController.swift */; };
 		5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */; };
+		5B57B3D62067E3830055660D /* FileSaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57B3D52067E3830055660D /* FileSaveController.swift */; };
 		5B68A7F21FD27381007849CE /* FileSystemItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */; };
 		5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */; };
 		5B6A96082009E0130031452C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A96072009E0130031452C /* Settings.storyboard */; };
 		5B6D6CF61FF2302A00994970 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D6CF51FF2302A00994970 /* ModelController.swift */; };
+		5B71C6572067710F00D78753 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71C6562067710F00D78753 /* RxSwift.framework */; };
+		5B71C6582067710F00D78753 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71C6562067710F00D78753 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B71C65F20677A6400D78753 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71C65C2067725600D78753 /* RxCocoa.framework */; };
+		5B71C66020677A6400D78753 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71C65C2067725600D78753 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BB324722034B7BE00DCA82F /* CodeTextEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */; };
 		5BB324732034B7BE00DCA82F /* CodeTextEditor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BB324762034B81700DCA82F /* ColorCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB324742034B81600DCA82F /* ColorCode.framework */; };
@@ -66,6 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5B71C66020677A6400D78753 /* RxCocoa.framework in Embed Frameworks */,
+				5B71C6582067710F00D78753 /* RxSwift.framework in Embed Frameworks */,
 				5B442911200BB7580053DE33 /* Files.framework in Embed Frameworks */,
 				5BB324792034B81700DCA82F /* YAML.framework in Embed Frameworks */,
 				5BB324772034B81700DCA82F /* ColorCode.framework in Embed Frameworks */,
@@ -97,12 +104,15 @@
 		5B44DA811FE66412001066F2 /* SearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchModel.xcdatamodel; sourceTree = "<group>"; };
 		5B44DABE1FE6651A001066F2 /* SearchModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelController.swift; sourceTree = "<group>"; };
 		5B56F04D1FDBC88E00B3A4DF /* MenuOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOutlineView.swift; sourceTree = "<group>"; };
+		5B57B3D52067E3830055660D /* FileSaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSaveController.swift; sourceTree = "<group>"; };
 		5B630BD71FD5E722006D34FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B68A7F11FD27381007849CE /* FileSystemItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemItemCell.swift; sourceTree = "<group>"; };
 		5B68A7F31FD294D0007849CE /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
 		5B6A96052009DF280031452C /* Files.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Files.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6A96072009E0130031452C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		5B6D6CF51FF2302A00994970 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		5B71C6562067710F00D78753 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B71C65C2067725600D78753 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CodeTextEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB324742034B81600DCA82F /* ColorCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorCode.framework; path = extern/CodeTextEditor/Carthage/Build/Mac/ColorCode.framework; sourceTree = "<group>"; };
 		5BB324752034B81600DCA82F /* YAML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAML.framework; path = extern/CodeTextEditor/Carthage/Build/Mac/YAML.framework; sourceTree = "<group>"; };
@@ -143,7 +153,9 @@
 			files = (
 				5BB324762034B81700DCA82F /* ColorCode.framework in Frameworks */,
 				5BB324782034B81700DCA82F /* YAML.framework in Frameworks */,
+				5B71C6572067710F00D78753 /* RxSwift.framework in Frameworks */,
 				5B442908200B935C0053DE33 /* libicucore.tbd in Frameworks */,
+				5B71C65F20677A6400D78753 /* RxCocoa.framework in Frameworks */,
 				5B442910200BB7580053DE33 /* Files.framework in Frameworks */,
 				5BC899742004F13500EA247A /* QuartzCore.framework in Frameworks */,
 				5BB324722034B7BE00DCA82F /* CodeTextEditor.framework in Frameworks */,
@@ -181,7 +193,6 @@
 				5B1869591FDAFAD600BC9BDF /* Models.swift */,
 				5B6D6CF51FF2302A00994970 /* ModelController.swift */,
 				5B44DA801FE66412001066F2 /* SearchModel.xcdatamodeld */,
-				5B44DABE1FE6651A001066F2 /* SearchModelController.swift */,
 				5BC1CDF21FF8F2FE009778D3 /* RootFilePresenter.swift */,
 			);
 			path = Models;
@@ -207,6 +218,22 @@
 				5BC4C7A91FE6442000252052 /* OpenQuicklyViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5B57B3D42067E3730055660D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B57B3D52067E3830055660D /* FileSaveController.swift */,
+				5B44DABE1FE6651A001066F2 /* SearchModelController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B71C6592067713F00D78753 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5BC899722004F13400EA247A /* Frameworks */ = {
@@ -247,6 +274,8 @@
 		C5998AEB1FD013100096858D = {
 			isa = PBXGroup;
 			children = (
+				5B71C65C2067725600D78753 /* RxCocoa.framework */,
+				5B71C6562067710F00D78753 /* RxSwift.framework */,
 				5BB324742034B81600DCA82F /* ColorCode.framework */,
 				5BB324752034B81600DCA82F /* YAML.framework */,
 				5BB324712034B7BE00DCA82F /* CodeTextEditor.framework */,
@@ -273,6 +302,8 @@
 		C5998AF61FD013100096858D /* Plainy */ = {
 			isa = PBXGroup;
 			children = (
+				5B57B3D42067E3730055660D /* Controller */,
+				5B71C6592067713F00D78753 /* ViewModel */,
 				5B442909200B958C0053DE33 /* Modules */,
 				5BF9B8E62001E6730056D6A7 /* WindowController */,
 				5B26E5B51FF226F40013B759 /* ViewController */,
@@ -467,6 +498,7 @@
 			files = (
 				5B68A7F41FD294D0007849CE /* MainSettingsViewController.swift in Sources */,
 				5B44DABF1FE6651A001066F2 /* SearchModelController.swift in Sources */,
+				5B57B3D62067E3830055660D /* FileSaveController.swift in Sources */,
 				C5D4C6201FD03E7C00A059F2 /* AppSplitViewController.swift in Sources */,
 				C5998AFA1FD013100096858D /* EditorViewController.swift in Sources */,
 				5B56F04E1FDBC88E00B3A4DF /* MenuOutlineView.swift in Sources */,

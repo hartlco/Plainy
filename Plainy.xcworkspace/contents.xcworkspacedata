@@ -5,6 +5,9 @@
       location = "group:/Users/martin/Code/Plainy/Plainy/Settings.storyboard">
    </FileRef>
    <FileRef
+      location = "group:extern/RxSwift/Rx.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:extern/CodeTextEditor/CodeTextEditor/CodeTextEditor.xcodeproj">
    </FileRef>
    <FileRef

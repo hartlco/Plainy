@@ -4,3 +4,6 @@
 [submodule "extern/CodeTextEditor"]
 	path = extern/CodeTextEditor
 	url = git@github.com:hartlco/CodeTextEditor.git
+[submodule "extern/RxSwift"]
+	path = extern/RxSwift
+	url = git@github.com:ReactiveX/RxSwift.git
