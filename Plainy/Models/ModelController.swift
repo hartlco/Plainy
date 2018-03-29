@@ -13,13 +13,11 @@ class ModelController {
     }
 
     func rename(browseItem: BrowseFileSystemItem, to newFilename: String) {
-        searchModelController.remove(fromIndex: browseItem.item)
         if let folderItem = browseItem as? BrowseFolderItem {
             rename(folderItem: folderItem, to: newFilename)
         } else if let fileItem = browseItem as? BrowseFileItem {
             rename(fileItem: fileItem, to: newFilename)
         }
-        searchModelController.index(fileSystemItem: browseItem.item)
     }
 
     // MARK: - Private

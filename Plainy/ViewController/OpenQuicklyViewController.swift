@@ -6,8 +6,16 @@
 import Cocoa
 import Carbon.HIToolbox
 import CoreData
+import Files
 
 class OpenQuicklyViewController: NSViewController {
+    lazy private var rootFolderItem: BrowseFolderItem = {
+        guard let folder = try? Folder(path: PreferencesManager.shared.rootPath) else {
+            return BrowseFolderItem(folder: PreferencesManager.shared.resetedRootFolder(), parent: nil)
+        }
+        return BrowseFolderItem(folder: folder, parent: nil)
+    }()
+
     @IBOutlet private weak var tableView: NSTableView! {
         didSet {
             tableView.doubleAction = #selector(openFile)
@@ -43,7 +51,7 @@ class OpenQuicklyViewController: NSViewController {
 
 extension OpenQuicklyViewController: NSTextFieldDelegate {
     override func controlTextDidChange(_ obj: Notification) {
-        results = SearchModelController.shared.files(containing: textField.stringValue)
+        results = SearchModelController.shared.files(containing: textField.stringValue, in: rootFolderItem.folder)
         tableView.reloadData()
         print("Found \(results.count) results")
         if results.count > 0 {
@@ -65,8 +73,8 @@ extension OpenQuicklyViewController: NSTableViewDelegate, NSTableViewDataSource 
         let openCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: OpenQuicklyCell.identifier),
                                           owner: self) as? OpenQuicklyCell
         let result = results[row]
-        openCell?.fileNameLabel.stringValue = result.name ?? ""
-        openCell?.filePreviewLabel.stringValue = result.content ?? ""
+        openCell?.fileNameLabel.stringValue = result.name
+        openCell?.filePreviewLabel.stringValue = result.content
         return openCell
     }
 }

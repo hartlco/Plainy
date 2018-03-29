@@ -19,7 +19,5 @@ final class FileSaveController {
         coordinator.coordinate(writingItemAt: fileItem.file.url, options: [], error: nil) { _ in
             try? fileItem.file.write(string: input)
         }
-
-        searchModelController.updateIndex(for: fileItem.file)
     }
 }

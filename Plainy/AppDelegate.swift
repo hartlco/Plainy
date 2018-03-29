@@ -9,15 +9,6 @@ import CoreData
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(_ notification: Notification) {
-//        NSApplication.shared.mainWindow?.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
-        SearchModelController.shared.index()
-    }
-
-    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        return SearchModelController.shared.terminate(sender)
-    }
-
     // MARK: - Shortcuts
 
     @IBAction func newFile(_ sender: Any) {
