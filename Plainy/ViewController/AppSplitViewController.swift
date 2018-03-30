@@ -79,8 +79,9 @@ class AppSplitViewController: NSSplitViewController {
     }
 
     private func showOpenQuickly() {
-        let openQuicklyStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "OpenQuickly"), bundle: nil)
-        guard let viewController = openQuicklyStoryboard.instantiateInitialController() as? OpenQuicklyViewController else { return }
+        guard let rootFolder = try? Folder(path: preferencesManager.rootPath) else { return }
+        let viewModel = OpenQuicklyViewModel(rootFolder: rootFolder)
+        let viewController = OpenQuicklyViewController(viewModel: viewModel)
 
         viewController.didSelectFile = didSelectFromOpening(searchFile:)
 

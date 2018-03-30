@@ -24,9 +24,23 @@ class OpenQuicklyViewController: NSViewController {
 
     @IBOutlet private weak var textField: NSTextField!
 
-    private var results: [SearchModel] = []
+    private let viewModel: OpenQuicklyViewModel
 
     var didSelectFile: (SearchModel) -> Void = { _ in }
+
+    init(viewModel: OpenQuicklyViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: OpenQuicklyViewController.nibName, bundle: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupBindings()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func keyDown(with event: NSEvent) {
         switch Int(event.keyCode) {
@@ -44,17 +58,23 @@ class OpenQuicklyViewController: NSViewController {
 
     @objc func openFile() {
         guard tableView.selectedRow > -1 else { return }
-        didSelectFile(results[tableView.selectedRow])
+        didSelectFile(viewModel[tableView.selectedRow])
         dismiss(nil)
+    }
+
+    // MARK: - Private
+
+    func setupBindings() {
+        viewModel.resultsChanged = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 
 extension OpenQuicklyViewController: NSTextFieldDelegate {
     override func controlTextDidChange(_ obj: Notification) {
-        results = SearchModelController.shared.files(containing: textField.stringValue, in: rootFolderItem.folder)
-        tableView.reloadData()
-        print("Found \(results.count) results")
-        if results.count > 0 {
+        viewModel.searchText = textField.stringValue
+        if viewModel.numberOfResults > 0 {
             tableView.selectRowIndexes([0], byExtendingSelection: false)
         }
     }
@@ -66,13 +86,13 @@ extension OpenQuicklyViewController: NSTextFieldDelegate {
 
 extension OpenQuicklyViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return results.count
+        return viewModel.numberOfResults
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let openCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: OpenQuicklyCell.identifier),
                                           owner: self) as? OpenQuicklyCell
-        let result = results[row]
+        let result = viewModel[row]
         openCell?.fileNameLabel.stringValue = result.name
         openCell?.filePreviewLabel.stringValue = result.content
         return openCell
